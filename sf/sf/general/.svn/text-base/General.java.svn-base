@@ -1,0 +1,30 @@
+package sf.general;
+
+public class General {
+	private String recstatus="A";
+	private long tglupdate;
+	private String userupdate;
+	
+	public General()
+	{
+		
+	}
+	public void setRecstatus(String recstatus) {
+		this.recstatus = recstatus;
+	}
+	public String getRecstatus() {
+		return recstatus;
+	}
+	public void setTglupdate(long tglupdate) {
+		this.tglupdate = tglupdate;
+	}
+	public long getTglupdate() {
+		return tglupdate;
+	}
+	public void setUserupdate(String userupdate) {
+		this.userupdate = userupdate;
+	}
+	public String getUserupdate() {
+		return userupdate;
+	}
+}

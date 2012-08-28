@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/13/trunk/server/doc/tester
+END
+Test.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/13/trunk/server/doc/tester/Test.html
+END
+package-frame.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/doc/tester/package-frame.html
+END
+package-use.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/13/trunk/server/doc/tester/package-use.html
+END
+package-summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/13/trunk/server/doc/tester/package-summary.html
+END
+package-tree.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/doc/tester/package-tree.html
+END

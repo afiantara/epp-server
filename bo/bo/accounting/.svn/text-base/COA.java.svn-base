@@ -1,0 +1,56 @@
+package bo.accounting;
+
+import sf.accounting.Account;
+import da.error.DAException;
+
+
+public class COA {
+	
+	private da.accounting.COA daCOA;
+	
+	public COA() throws DAException
+	{
+		daCOA=new da.accounting.COA();
+	}
+	
+	public Account[] getAccounts() throws DAException
+	{
+		return daCOA.getAccounts();
+	}
+	
+	public Account[] getAccountByGroup(String group) throws DAException
+	{
+		return daCOA.getAccountByGroup(group);
+	}
+	
+	public Account[] getAccountByLevel(String level) throws DAException
+	{
+		return daCOA.getAccountByLevel(level);
+	}
+	
+	public Account getAccountByNo(String accountNo) throws DAException
+	{
+		return daCOA.getAccountByNo(accountNo);
+	}
+	
+	public Account getAccountBiaya(String accountNo,String desc) throws DAException
+	{
+		sf.accounting.Account acc=new sf.accounting.Account();
+		acc.setAccounts(daCOA.getAccountBiaya(accountNo, desc));
+		return acc;
+	}
+	public boolean insertCOA(Account acct) throws DAException 
+	{
+		return daCOA.insertCOA(acct);
+	}
+	
+	public boolean updateCOA(Account acct) throws DAException
+	{
+		return daCOA.updateCOA(acct);
+	}
+	
+	public boolean deleteCOA(String accno) throws DAException
+	{
+		return daCOA.deleteCOA(accno);
+	}
+}

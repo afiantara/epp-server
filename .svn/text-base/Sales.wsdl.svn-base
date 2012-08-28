@@ -1,0 +1,2955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://epp.com.sales/xsd" xmlns:ax239="http://error.da/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://epp.com.sales/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax246="http://cetak.sf/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax242="http://sales.sf/xsd" xmlns:ax244="http://general.sf/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://epp.com.sales/">
+    <wsdl:documentation>Sales</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax247="http://cetak.sf/xsd" xmlns:ax241="http://error.da/xsd" xmlns:ax243="http://sales.sf/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://epp.com.sales/xsd">
+            <xs:import namespace="http://error.da/xsd"/>
+            <xs:import namespace="http://sales.sf/xsd"/>
+            <xs:import namespace="http://cetak.sf/xsd"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DAException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="DAException" nillable="true" type="ax241:DAException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SuratJalanHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:SuratJalanGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="detail" nillable="true" type="ax243:SuratJalanDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalan">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SuratJalanHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:SuratJalanDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSuratJalanResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SalesOrderHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:SalesOrderGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="detail" nillable="true" type="ax243:SalesOrderDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SalesOrderHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:SalesOrderDetail"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="biayas" nillable="true" type="ax243:SOrderBiaya"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSalesOrderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:QuotationHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:QuotationGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="detail" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:QuotationHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateQuotationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSuratJalan">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SuratJalanHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:SuratJalanDetail"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="biayas" nillable="true" type="ax243:SOrderBiaya"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSuratJalanResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSalesOrderGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:SalesOrderGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSalesOrderGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSalesOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SalesOrderHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:SalesOrderDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertSalesOrderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertQuotation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:QuotationHeader"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="details" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertQuotationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertGrouping">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:QuotationGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insertGroupingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SuratJalanHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanGrouping">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanGroupingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SuratJalanGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noBukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SuratJalanDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalan">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSuratJalanResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SuratJalanHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getStockBalance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kbarang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="kgudang" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getStockBalanceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SalesOrderHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noBukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SalesOrderDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderBiaya">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderBiayaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SOrderBiaya"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesOrderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SalesOrderHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesGrouping">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSalesGroupingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SalesOrderGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationHeaderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:QuotationHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetailSOOut">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noBukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetailSOOutResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetailNotApproved">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noBukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetailNotApprovedResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noBukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getQuotationDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:QuotationDetail"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNoSOResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNoSJResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNoBuktiSOResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNoBuktiResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getKartuServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:SCardHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGrouping">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGroupingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax243:QuotationGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSuratJalan">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SuratJalanHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSuratJalanResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSalesOrderGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:SalesOrderGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSalesOrderGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSalesOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:SalesOrderHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteSalesOrderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteQuotationGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="group" nillable="true" type="ax243:QuotationGroup"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteQuotationGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteQuotation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="header" nillable="true" type="ax243:QuotationHeader"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteQuotationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkSOExist">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="noPO" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkSOExistResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="cetakQuotationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax247:Cetak"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="approved">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="nourut" type="xs:int"/>
+                        <xs:element minOccurs="0" name="kbarang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="approvedby" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="approvedTgl" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="approvedResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:ax245="http://general.sf/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://sales.sf/xsd">
+            <xs:import namespace="http://general.sf/xsd"/>
+            <xs:complexType name="SuratJalanHeader">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="disc1" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kclient" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kgudang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kinvoice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kkurs" type="xs:double"/>
+                    <xs:element minOccurs="0" name="ksales" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kservice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kvaluta" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nopocust" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noref" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noscard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="notracking" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="sjHeaders" nillable="true" type="ax242:SuratJalanHeader"/>
+                    <xs:element minOccurs="0" name="tglbukti" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SuratJalanGroup">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="groups" nillable="true" type="ax242:SuratJalanGroup"/>
+                    <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket10" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket11" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket12" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket13" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket14" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket15" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket16" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket17" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket18" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket19" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket20" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket6" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket7" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket8" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket9" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="satuan" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SuratJalanDetail">
+                <xs:complexContent>
+                    <xs:extension base="ax244:General">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="disc2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                            <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah1" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="kbarang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ket" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kgroup" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="noinvoice" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nopo" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="noso" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nosq" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nourut" type="xs:int"/>
+                            <xs:element minOccurs="0" name="nvaluta" type="xs:double"/>
+                            <xs:element minOccurs="0" name="plist" type="xs:double"/>
+                            <xs:element minOccurs="0" name="pvaluta" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="sjDetails" nillable="true" type="ax242:SuratJalanDetail"/>
+                            <xs:element minOccurs="0" name="stockbal" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="SalesOrderHeader">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="disc1" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kclient" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kgudang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kinvoice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kkurs" type="xs:double"/>
+                    <xs:element minOccurs="0" name="ksales" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kservice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kvaluta" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nopocust" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noref" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noscard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="notracking" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="salesOrderHeaders" nillable="true" type="ax242:SalesOrderHeader"/>
+                    <xs:element minOccurs="0" name="tglbukti" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SalesOrderGroup">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="groups" nillable="true" type="ax242:SalesOrderGroup"/>
+                    <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket10" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket11" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket12" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket13" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket14" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket15" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket16" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket17" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket18" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket19" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket20" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket6" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket7" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket8" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket9" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="satuan" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SalesOrderDetail">
+                <xs:complexContent>
+                    <xs:extension base="ax244:General">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="disc2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                            <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah1" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="kbarang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ket" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kgroup" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nopo" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nosj" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nosq" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nourut" type="xs:int"/>
+                            <xs:element minOccurs="0" name="nvaluta" type="xs:double"/>
+                            <xs:element minOccurs="0" name="plist" type="xs:double"/>
+                            <xs:element minOccurs="0" name="pvaluta" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="salesOrderDetails" nillable="true" type="ax242:SalesOrderDetail"/>
+                            <xs:element minOccurs="0" name="stockbal" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="SOrderBiaya">
+                <xs:complexContent>
+                    <xs:extension base="ax244:General">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="accDesc" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="accno" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="biayas" nillable="true" type="ax242:SOrderBiaya"/>
+                            <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kvaluta" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nrealisasi" type="xs:double"/>
+                            <xs:element minOccurs="0" name="nvaluta" type="xs:double"/>
+                            <xs:element minOccurs="0" name="trealisasi" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="QuotationHeader">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="disc1" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                    <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kclient" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kgudang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kinvoice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kirim" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kkurs" type="xs:double"/>
+                    <xs:element minOccurs="0" name="kontak1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kontak2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kontak3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ksales" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kservice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kvaluta" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noref" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noscard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="notracking" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="quotationHeaders" nillable="true" type="ax242:QuotationHeader"/>
+                    <xs:element minOccurs="0" name="syarat" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tglbukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validity" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="QuotationGroup">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="groups" nillable="true" type="ax242:QuotationGroup"/>
+                    <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                    <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket10" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket11" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket12" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket13" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket14" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket15" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket16" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket17" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket18" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket19" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket20" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket6" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket7" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket8" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ket9" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="satuan" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="QuotationDetail">
+                <xs:complexContent>
+                    <xs:extension base="ax244:General">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="approvedBy" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="approvedDate" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="disc2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discpl" type="xs:double"/>
+                            <xs:element minOccurs="0" name="discval" type="xs:double"/>
+                            <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="grouping" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="jumlah" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah1" type="xs:double"/>
+                            <xs:element minOccurs="0" name="jumlah2" type="xs:double"/>
+                            <xs:element minOccurs="0" name="kbarang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kcabang" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ket" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="kgroup" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nobukti" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="noso" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nourut" type="xs:int"/>
+                            <xs:element minOccurs="0" name="nvaluta" type="xs:double"/>
+                            <xs:element minOccurs="0" name="plist" type="xs:double"/>
+                            <xs:element minOccurs="0" name="pvaluta" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="quotationDetails" nillable="true" type="ax242:QuotationDetail"/>
+                            <xs:element minOccurs="0" name="stockbal" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="SCardHeader">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="cards" nillable="true" type="ax242:SCardHeader"/>
+                    <xs:element minOccurs="0" name="err" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noscard" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://general.sf/xsd">
+            <xs:complexType name="General">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="recstatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tglupdate" type="xs:long"/>
+                    <xs:element minOccurs="0" name="userupdate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://cetak.sf/xsd">
+            <xs:complexType name="Cetak">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="cetaks" nillable="true" type="ax246:Cetak"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="ax246:CetakItem"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CetakItem">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="columnName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="value" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax240="http://epp.com.sales/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://error.da/xsd">
+            <xs:import namespace="http://epp.com.sales/xsd"/>
+            <xs:complexType name="DAException">
+                <xs:complexContent>
+                    <xs:extension base="ns:Exception">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="errNo" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getKartuServiceRequest"/>
+    <wsdl:message name="getKartuServiceResponse">
+        <wsdl:part name="parameters" element="ns:getKartuServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DAException">
+        <wsdl:part name="parameters" element="ns:DAException"/>
+    </wsdl:message>
+    <wsdl:message name="approvedRequest">
+        <wsdl:part name="parameters" element="ns:approved"/>
+    </wsdl:message>
+    <wsdl:message name="approvedResponse">
+        <wsdl:part name="parameters" element="ns:approvedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="insertQuotationRequest">
+        <wsdl:part name="parameters" element="ns:insertQuotation"/>
+    </wsdl:message>
+    <wsdl:message name="insertQuotationResponse">
+        <wsdl:part name="parameters" element="ns:insertQuotationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSalesOrderRequest">
+        <wsdl:part name="parameters" element="ns:deleteSalesOrder"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSalesOrderResponse">
+        <wsdl:part name="parameters" element="ns:deleteSalesOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderHeaderRequest">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderHeader"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderHeaderResponse">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getGroupingRequest">
+        <wsdl:part name="parameters" element="ns:getGrouping"/>
+    </wsdl:message>
+    <wsdl:message name="getGroupingResponse">
+        <wsdl:part name="parameters" element="ns:getGroupingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="insertGroupingRequest">
+        <wsdl:part name="parameters" element="ns:insertGrouping"/>
+    </wsdl:message>
+    <wsdl:message name="insertGroupingResponse">
+        <wsdl:part name="parameters" element="ns:insertGroupingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesGroupingRequest">
+        <wsdl:part name="parameters" element="ns:getSalesGrouping"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesGroupingResponse">
+        <wsdl:part name="parameters" element="ns:getSalesGroupingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanDetailRequest">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanDetail"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanDetailResponse">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="insertSalesOrderGroupRequest">
+        <wsdl:part name="parameters" element="ns:insertSalesOrderGroup"/>
+    </wsdl:message>
+    <wsdl:message name="insertSalesOrderGroupResponse">
+        <wsdl:part name="parameters" element="ns:insertSalesOrderGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailRequest">
+        <wsdl:part name="parameters" element="ns:getQuotationDetail"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailResponse">
+        <wsdl:part name="parameters" element="ns:getQuotationDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderBiayaRequest">
+        <wsdl:part name="parameters" element="ns:getSalesOrderBiaya"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderBiayaResponse">
+        <wsdl:part name="parameters" element="ns:getSalesOrderBiayaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteQuotationGroupRequest">
+        <wsdl:part name="parameters" element="ns:deleteQuotationGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteQuotationGroupResponse">
+        <wsdl:part name="parameters" element="ns:deleteQuotationGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNoSJRequest"/>
+    <wsdl:message name="getNoSJResponse">
+        <wsdl:part name="parameters" element="ns:getNoSJResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSuratJalanRequest">
+        <wsdl:part name="parameters" element="ns:deleteSuratJalan"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSuratJalanResponse">
+        <wsdl:part name="parameters" element="ns:deleteSuratJalanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationHeaderRequest">
+        <wsdl:part name="parameters" element="ns:updateQuotationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationHeaderResponse">
+        <wsdl:part name="parameters" element="ns:updateQuotationHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderDetailRequest">
+        <wsdl:part name="parameters" element="ns:getSalesOrderDetail"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderDetailResponse">
+        <wsdl:part name="parameters" element="ns:getSalesOrderDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteQuotationRequest">
+        <wsdl:part name="parameters" element="ns:deleteQuotation"/>
+    </wsdl:message>
+    <wsdl:message name="deleteQuotationResponse">
+        <wsdl:part name="parameters" element="ns:deleteQuotationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanRequest">
+        <wsdl:part name="parameters" element="ns:getSuratJalan"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanResponse">
+        <wsdl:part name="parameters" element="ns:getSuratJalanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationDetailRequest">
+        <wsdl:part name="parameters" element="ns:updateQuotationDetail"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationDetailResponse">
+        <wsdl:part name="parameters" element="ns:updateQuotationDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationHeaderRequest">
+        <wsdl:part name="parameters" element="ns:getQuotationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationHeaderResponse">
+        <wsdl:part name="parameters" element="ns:getQuotationHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNoSORequest"/>
+    <wsdl:message name="getNoSOResponse">
+        <wsdl:part name="parameters" element="ns:getNoSOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderRequest">
+        <wsdl:part name="parameters" element="ns:updateSalesOrder"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderResponse">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="insertSuratJalanRequest">
+        <wsdl:part name="parameters" element="ns:insertSuratJalan"/>
+    </wsdl:message>
+    <wsdl:message name="insertSuratJalanResponse">
+        <wsdl:part name="parameters" element="ns:insertSuratJalanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanHeaderRequest">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanHeader"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanHeaderResponse">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailNotApprovedRequest">
+        <wsdl:part name="parameters" element="ns:getQuotationDetailNotApproved"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailNotApprovedResponse">
+        <wsdl:part name="parameters" element="ns:getQuotationDetailNotApprovedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNoBuktiSORequest"/>
+    <wsdl:message name="getNoBuktiSOResponse">
+        <wsdl:part name="parameters" element="ns:getNoBuktiSOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSalesOrderGroupRequest">
+        <wsdl:part name="parameters" element="ns:deleteSalesOrderGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteSalesOrderGroupResponse">
+        <wsdl:part name="parameters" element="ns:deleteSalesOrderGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailSOOutRequest">
+        <wsdl:part name="parameters" element="ns:getQuotationDetailSOOut"/>
+    </wsdl:message>
+    <wsdl:message name="getQuotationDetailSOOutResponse">
+        <wsdl:part name="parameters" element="ns:getQuotationDetailSOOutResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderDetailRequest">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderDetail"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderDetailResponse">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderRequest">
+        <wsdl:part name="parameters" element="ns:getSalesOrder"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderResponse">
+        <wsdl:part name="parameters" element="ns:getSalesOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanGroupRequest">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanGroup"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanGroupResponse">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderHeaderRequest">
+        <wsdl:part name="parameters" element="ns:getSalesOrderHeader"/>
+    </wsdl:message>
+    <wsdl:message name="getSalesOrderHeaderResponse">
+        <wsdl:part name="parameters" element="ns:getSalesOrderHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanGroupingRequest">
+        <wsdl:part name="parameters" element="ns:getSuratJalanGrouping"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanGroupingResponse">
+        <wsdl:part name="parameters" element="ns:getSuratJalanGroupingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNoBuktiRequest"/>
+    <wsdl:message name="getNoBuktiResponse">
+        <wsdl:part name="parameters" element="ns:getNoBuktiResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderGroupRequest">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderGroup"/>
+    </wsdl:message>
+    <wsdl:message name="updateSalesOrderGroupResponse">
+        <wsdl:part name="parameters" element="ns:updateSalesOrderGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="insertSalesOrderRequest">
+        <wsdl:part name="parameters" element="ns:insertSalesOrder"/>
+    </wsdl:message>
+    <wsdl:message name="insertSalesOrderResponse">
+        <wsdl:part name="parameters" element="ns:insertSalesOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanRequest">
+        <wsdl:part name="parameters" element="ns:updateSuratJalan"/>
+    </wsdl:message>
+    <wsdl:message name="updateSuratJalanResponse">
+        <wsdl:part name="parameters" element="ns:updateSuratJalanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getStockBalanceRequest">
+        <wsdl:part name="parameters" element="ns:getStockBalance"/>
+    </wsdl:message>
+    <wsdl:message name="getStockBalanceResponse">
+        <wsdl:part name="parameters" element="ns:getStockBalanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationRequest">
+        <wsdl:part name="parameters" element="ns:updateQuotation"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationResponse">
+        <wsdl:part name="parameters" element="ns:updateQuotationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="checkSOExistRequest">
+        <wsdl:part name="parameters" element="ns:checkSOExist"/>
+    </wsdl:message>
+    <wsdl:message name="checkSOExistResponse">
+        <wsdl:part name="parameters" element="ns:checkSOExistResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanDetailRequest">
+        <wsdl:part name="parameters" element="ns:getSuratJalanDetail"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanDetailResponse">
+        <wsdl:part name="parameters" element="ns:getSuratJalanDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="cetakQuotationRequest"/>
+    <wsdl:message name="cetakQuotationResponse">
+        <wsdl:part name="parameters" element="ns:cetakQuotationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationGroupRequest">
+        <wsdl:part name="parameters" element="ns:updateQuotationGroup"/>
+    </wsdl:message>
+    <wsdl:message name="updateQuotationGroupResponse">
+        <wsdl:part name="parameters" element="ns:updateQuotationGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanHeaderRequest">
+        <wsdl:part name="parameters" element="ns:getSuratJalanHeader"/>
+    </wsdl:message>
+    <wsdl:message name="getSuratJalanHeaderResponse">
+        <wsdl:part name="parameters" element="ns:getSuratJalanHeaderResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SalesPortType">
+        <wsdl:operation name="getKartuService">
+            <wsdl:input message="axis2:getKartuServiceRequest" wsaw:Action="urn:getKartuService"/>
+            <wsdl:output message="axis2:getKartuServiceResponse" wsaw:Action="urn:getKartuServiceResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getKartuServiceDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="approved">
+            <wsdl:input message="axis2:approvedRequest" wsaw:Action="urn:approved"/>
+            <wsdl:output message="axis2:approvedResponse" wsaw:Action="urn:approvedResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:approvedDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="insertQuotation">
+            <wsdl:input message="axis2:insertQuotationRequest" wsaw:Action="urn:insertQuotation"/>
+            <wsdl:output message="axis2:insertQuotationResponse" wsaw:Action="urn:insertQuotationResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:insertQuotationDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrder">
+            <wsdl:input message="axis2:deleteSalesOrderRequest" wsaw:Action="urn:deleteSalesOrder"/>
+            <wsdl:output message="axis2:deleteSalesOrderResponse" wsaw:Action="urn:deleteSalesOrderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:deleteSalesOrderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderHeader">
+            <wsdl:input message="axis2:updateSalesOrderHeaderRequest" wsaw:Action="urn:updateSalesOrderHeader"/>
+            <wsdl:output message="axis2:updateSalesOrderHeaderResponse" wsaw:Action="urn:updateSalesOrderHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSalesOrderHeaderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGrouping">
+            <wsdl:input message="axis2:getGroupingRequest" wsaw:Action="urn:getGrouping"/>
+            <wsdl:output message="axis2:getGroupingResponse" wsaw:Action="urn:getGroupingResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getGroupingDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="insertGrouping">
+            <wsdl:input message="axis2:insertGroupingRequest" wsaw:Action="urn:insertGrouping"/>
+            <wsdl:output message="axis2:insertGroupingResponse" wsaw:Action="urn:insertGroupingResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:insertGroupingDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesGrouping">
+            <wsdl:input message="axis2:getSalesGroupingRequest" wsaw:Action="urn:getSalesGrouping"/>
+            <wsdl:output message="axis2:getSalesGroupingResponse" wsaw:Action="urn:getSalesGroupingResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSalesGroupingDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanDetail">
+            <wsdl:input message="axis2:updateSuratJalanDetailRequest" wsaw:Action="urn:updateSuratJalanDetail"/>
+            <wsdl:output message="axis2:updateSuratJalanDetailResponse" wsaw:Action="urn:updateSuratJalanDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSuratJalanDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrderGroup">
+            <wsdl:input message="axis2:insertSalesOrderGroupRequest" wsaw:Action="urn:insertSalesOrderGroup"/>
+            <wsdl:output message="axis2:insertSalesOrderGroupResponse" wsaw:Action="urn:insertSalesOrderGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:insertSalesOrderGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetail">
+            <wsdl:input message="axis2:getQuotationDetailRequest" wsaw:Action="urn:getQuotationDetail"/>
+            <wsdl:output message="axis2:getQuotationDetailResponse" wsaw:Action="urn:getQuotationDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getQuotationDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderBiaya">
+            <wsdl:input message="axis2:getSalesOrderBiayaRequest" wsaw:Action="urn:getSalesOrderBiaya"/>
+            <wsdl:output message="axis2:getSalesOrderBiayaResponse" wsaw:Action="urn:getSalesOrderBiayaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotationGroup">
+            <wsdl:input message="axis2:deleteQuotationGroupRequest" wsaw:Action="urn:deleteQuotationGroup"/>
+            <wsdl:output message="axis2:deleteQuotationGroupResponse" wsaw:Action="urn:deleteQuotationGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:deleteQuotationGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSJ">
+            <wsdl:input message="axis2:getNoSJRequest" wsaw:Action="urn:getNoSJ"/>
+            <wsdl:output message="axis2:getNoSJResponse" wsaw:Action="urn:getNoSJResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getNoSJDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSuratJalan">
+            <wsdl:input message="axis2:deleteSuratJalanRequest" wsaw:Action="urn:deleteSuratJalan"/>
+            <wsdl:output message="axis2:deleteSuratJalanResponse" wsaw:Action="urn:deleteSuratJalanResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:deleteSuratJalanDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationHeader">
+            <wsdl:input message="axis2:updateQuotationHeaderRequest" wsaw:Action="urn:updateQuotationHeader"/>
+            <wsdl:output message="axis2:updateQuotationHeaderResponse" wsaw:Action="urn:updateQuotationHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateQuotationHeaderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderDetail">
+            <wsdl:input message="axis2:getSalesOrderDetailRequest" wsaw:Action="urn:getSalesOrderDetail"/>
+            <wsdl:output message="axis2:getSalesOrderDetailResponse" wsaw:Action="urn:getSalesOrderDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSalesOrderDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotation">
+            <wsdl:input message="axis2:deleteQuotationRequest" wsaw:Action="urn:deleteQuotation"/>
+            <wsdl:output message="axis2:deleteQuotationResponse" wsaw:Action="urn:deleteQuotationResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:deleteQuotationDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalan">
+            <wsdl:input message="axis2:getSuratJalanRequest" wsaw:Action="urn:getSuratJalan"/>
+            <wsdl:output message="axis2:getSuratJalanResponse" wsaw:Action="urn:getSuratJalanResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSuratJalanDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationDetail">
+            <wsdl:input message="axis2:updateQuotationDetailRequest" wsaw:Action="urn:updateQuotationDetail"/>
+            <wsdl:output message="axis2:updateQuotationDetailResponse" wsaw:Action="urn:updateQuotationDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateQuotationDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationHeader">
+            <wsdl:input message="axis2:getQuotationHeaderRequest" wsaw:Action="urn:getQuotationHeader"/>
+            <wsdl:output message="axis2:getQuotationHeaderResponse" wsaw:Action="urn:getQuotationHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getQuotationHeaderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSO">
+            <wsdl:input message="axis2:getNoSORequest" wsaw:Action="urn:getNoSO"/>
+            <wsdl:output message="axis2:getNoSOResponse" wsaw:Action="urn:getNoSOResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getNoSODAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrder">
+            <wsdl:input message="axis2:updateSalesOrderRequest" wsaw:Action="urn:updateSalesOrder"/>
+            <wsdl:output message="axis2:updateSalesOrderResponse" wsaw:Action="urn:updateSalesOrderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSalesOrderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="insertSuratJalan">
+            <wsdl:input message="axis2:insertSuratJalanRequest" wsaw:Action="urn:insertSuratJalan"/>
+            <wsdl:output message="axis2:insertSuratJalanResponse" wsaw:Action="urn:insertSuratJalanResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:insertSuratJalanDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanHeader">
+            <wsdl:input message="axis2:updateSuratJalanHeaderRequest" wsaw:Action="urn:updateSuratJalanHeader"/>
+            <wsdl:output message="axis2:updateSuratJalanHeaderResponse" wsaw:Action="urn:updateSuratJalanHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSuratJalanHeaderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailNotApproved">
+            <wsdl:input message="axis2:getQuotationDetailNotApprovedRequest" wsaw:Action="urn:getQuotationDetailNotApproved"/>
+            <wsdl:output message="axis2:getQuotationDetailNotApprovedResponse" wsaw:Action="urn:getQuotationDetailNotApprovedResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getQuotationDetailNotApprovedDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBuktiSO">
+            <wsdl:input message="axis2:getNoBuktiSORequest" wsaw:Action="urn:getNoBuktiSO"/>
+            <wsdl:output message="axis2:getNoBuktiSOResponse" wsaw:Action="urn:getNoBuktiSOResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getNoBuktiSODAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrderGroup">
+            <wsdl:input message="axis2:deleteSalesOrderGroupRequest" wsaw:Action="urn:deleteSalesOrderGroup"/>
+            <wsdl:output message="axis2:deleteSalesOrderGroupResponse" wsaw:Action="urn:deleteSalesOrderGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:deleteSalesOrderGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailSOOut">
+            <wsdl:input message="axis2:getQuotationDetailSOOutRequest" wsaw:Action="urn:getQuotationDetailSOOut"/>
+            <wsdl:output message="axis2:getQuotationDetailSOOutResponse" wsaw:Action="urn:getQuotationDetailSOOutResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getQuotationDetailSOOutDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderDetail">
+            <wsdl:input message="axis2:updateSalesOrderDetailRequest" wsaw:Action="urn:updateSalesOrderDetail"/>
+            <wsdl:output message="axis2:updateSalesOrderDetailResponse" wsaw:Action="urn:updateSalesOrderDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSalesOrderDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrder">
+            <wsdl:input message="axis2:getSalesOrderRequest" wsaw:Action="urn:getSalesOrder"/>
+            <wsdl:output message="axis2:getSalesOrderResponse" wsaw:Action="urn:getSalesOrderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSalesOrderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanGroup">
+            <wsdl:input message="axis2:updateSuratJalanGroupRequest" wsaw:Action="urn:updateSuratJalanGroup"/>
+            <wsdl:output message="axis2:updateSuratJalanGroupResponse" wsaw:Action="urn:updateSuratJalanGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSuratJalanGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderHeader">
+            <wsdl:input message="axis2:getSalesOrderHeaderRequest" wsaw:Action="urn:getSalesOrderHeader"/>
+            <wsdl:output message="axis2:getSalesOrderHeaderResponse" wsaw:Action="urn:getSalesOrderHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSalesOrderHeaderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanGrouping">
+            <wsdl:input message="axis2:getSuratJalanGroupingRequest" wsaw:Action="urn:getSuratJalanGrouping"/>
+            <wsdl:output message="axis2:getSuratJalanGroupingResponse" wsaw:Action="urn:getSuratJalanGroupingResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSuratJalanGroupingDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBukti">
+            <wsdl:input message="axis2:getNoBuktiRequest" wsaw:Action="urn:getNoBukti"/>
+            <wsdl:output message="axis2:getNoBuktiResponse" wsaw:Action="urn:getNoBuktiResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getNoBuktiDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderGroup">
+            <wsdl:input message="axis2:updateSalesOrderGroupRequest" wsaw:Action="urn:updateSalesOrderGroup"/>
+            <wsdl:output message="axis2:updateSalesOrderGroupResponse" wsaw:Action="urn:updateSalesOrderGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSalesOrderGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrder">
+            <wsdl:input message="axis2:insertSalesOrderRequest" wsaw:Action="urn:insertSalesOrder"/>
+            <wsdl:output message="axis2:insertSalesOrderResponse" wsaw:Action="urn:insertSalesOrderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:insertSalesOrderDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalan">
+            <wsdl:input message="axis2:updateSuratJalanRequest" wsaw:Action="urn:updateSuratJalan"/>
+            <wsdl:output message="axis2:updateSuratJalanResponse" wsaw:Action="urn:updateSuratJalanResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateSuratJalanDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getStockBalance">
+            <wsdl:input message="axis2:getStockBalanceRequest" wsaw:Action="urn:getStockBalance"/>
+            <wsdl:output message="axis2:getStockBalanceResponse" wsaw:Action="urn:getStockBalanceResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getStockBalanceDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotation">
+            <wsdl:input message="axis2:updateQuotationRequest" wsaw:Action="urn:updateQuotation"/>
+            <wsdl:output message="axis2:updateQuotationResponse" wsaw:Action="urn:updateQuotationResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateQuotationDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkSOExist">
+            <wsdl:input message="axis2:checkSOExistRequest" wsaw:Action="urn:checkSOExist"/>
+            <wsdl:output message="axis2:checkSOExistResponse" wsaw:Action="urn:checkSOExistResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:checkSOExistDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanDetail">
+            <wsdl:input message="axis2:getSuratJalanDetailRequest" wsaw:Action="urn:getSuratJalanDetail"/>
+            <wsdl:output message="axis2:getSuratJalanDetailResponse" wsaw:Action="urn:getSuratJalanDetailResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSuratJalanDetailDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="cetakQuotation">
+            <wsdl:input message="axis2:cetakQuotationRequest" wsaw:Action="urn:cetakQuotation"/>
+            <wsdl:output message="axis2:cetakQuotationResponse" wsaw:Action="urn:cetakQuotationResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:cetakQuotationDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationGroup">
+            <wsdl:input message="axis2:updateQuotationGroupRequest" wsaw:Action="urn:updateQuotationGroup"/>
+            <wsdl:output message="axis2:updateQuotationGroupResponse" wsaw:Action="urn:updateQuotationGroupResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:updateQuotationGroupDAException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanHeader">
+            <wsdl:input message="axis2:getSuratJalanHeaderRequest" wsaw:Action="urn:getSuratJalanHeader"/>
+            <wsdl:output message="axis2:getSuratJalanHeaderResponse" wsaw:Action="urn:getSuratJalanHeaderResponse"/>
+            <wsdl:fault message="axis2:DAException" name="DAException" wsaw:Action="urn:getSuratJalanHeaderDAException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SalesSoap11Binding" type="axis2:SalesPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getKartuService">
+            <soap:operation soapAction="urn:getKartuService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="approved">
+            <soap:operation soapAction="urn:approved" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertQuotation">
+            <soap:operation soapAction="urn:insertQuotation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrder">
+            <soap:operation soapAction="urn:deleteSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderHeader">
+            <soap:operation soapAction="urn:updateSalesOrderHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertGrouping">
+            <soap:operation soapAction="urn:insertGrouping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getGrouping">
+            <soap:operation soapAction="urn:getGrouping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesGrouping">
+            <soap:operation soapAction="urn:getSalesGrouping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanDetail">
+            <soap:operation soapAction="urn:updateSuratJalanDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrderGroup">
+            <soap:operation soapAction="urn:insertSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderBiaya">
+            <soap:operation soapAction="urn:getSalesOrderBiaya" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetail">
+            <soap:operation soapAction="urn:getQuotationDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotationGroup">
+            <soap:operation soapAction="urn:deleteQuotationGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSJ">
+            <soap:operation soapAction="urn:getNoSJ" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationHeader">
+            <soap:operation soapAction="urn:updateQuotationHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSuratJalan">
+            <soap:operation soapAction="urn:deleteSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderDetail">
+            <soap:operation soapAction="urn:getSalesOrderDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotation">
+            <soap:operation soapAction="urn:deleteQuotation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationDetail">
+            <soap:operation soapAction="urn:updateQuotationDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalan">
+            <soap:operation soapAction="urn:getSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationHeader">
+            <soap:operation soapAction="urn:getQuotationHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrder">
+            <soap:operation soapAction="urn:updateSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSO">
+            <soap:operation soapAction="urn:getNoSO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSuratJalan">
+            <soap:operation soapAction="urn:insertSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailNotApproved">
+            <soap:operation soapAction="urn:getQuotationDetailNotApproved" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanHeader">
+            <soap:operation soapAction="urn:updateSuratJalanHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBuktiSO">
+            <soap:operation soapAction="urn:getNoBuktiSO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrderGroup">
+            <soap:operation soapAction="urn:deleteSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderDetail">
+            <soap:operation soapAction="urn:updateSalesOrderDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailSOOut">
+            <soap:operation soapAction="urn:getQuotationDetailSOOut" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrder">
+            <soap:operation soapAction="urn:getSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanGroup">
+            <soap:operation soapAction="urn:updateSuratJalanGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanGrouping">
+            <soap:operation soapAction="urn:getSuratJalanGrouping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderHeader">
+            <soap:operation soapAction="urn:getSalesOrderHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBukti">
+            <soap:operation soapAction="urn:getNoBukti" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderGroup">
+            <soap:operation soapAction="urn:updateSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrder">
+            <soap:operation soapAction="urn:insertSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalan">
+            <soap:operation soapAction="urn:updateSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getStockBalance">
+            <soap:operation soapAction="urn:getStockBalance" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotation">
+            <soap:operation soapAction="urn:updateQuotation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanDetail">
+            <soap:operation soapAction="urn:getSuratJalanDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkSOExist">
+            <soap:operation soapAction="urn:checkSOExist" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="cetakQuotation">
+            <soap:operation soapAction="urn:cetakQuotation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationGroup">
+            <soap:operation soapAction="urn:updateQuotationGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanHeader">
+            <soap:operation soapAction="urn:getSuratJalanHeader" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SalesSoap12Binding" type="axis2:SalesPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getKartuService">
+            <soap12:operation soapAction="urn:getKartuService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="approved">
+            <soap12:operation soapAction="urn:approved" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertQuotation">
+            <soap12:operation soapAction="urn:insertQuotation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrder">
+            <soap12:operation soapAction="urn:deleteSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderHeader">
+            <soap12:operation soapAction="urn:updateSalesOrderHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertGrouping">
+            <soap12:operation soapAction="urn:insertGrouping" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getGrouping">
+            <soap12:operation soapAction="urn:getGrouping" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesGrouping">
+            <soap12:operation soapAction="urn:getSalesGrouping" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanDetail">
+            <soap12:operation soapAction="urn:updateSuratJalanDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrderGroup">
+            <soap12:operation soapAction="urn:insertSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderBiaya">
+            <soap12:operation soapAction="urn:getSalesOrderBiaya" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetail">
+            <soap12:operation soapAction="urn:getQuotationDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotationGroup">
+            <soap12:operation soapAction="urn:deleteQuotationGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSJ">
+            <soap12:operation soapAction="urn:getNoSJ" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationHeader">
+            <soap12:operation soapAction="urn:updateQuotationHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSuratJalan">
+            <soap12:operation soapAction="urn:deleteSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderDetail">
+            <soap12:operation soapAction="urn:getSalesOrderDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotation">
+            <soap12:operation soapAction="urn:deleteQuotation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationDetail">
+            <soap12:operation soapAction="urn:updateQuotationDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalan">
+            <soap12:operation soapAction="urn:getSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationHeader">
+            <soap12:operation soapAction="urn:getQuotationHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrder">
+            <soap12:operation soapAction="urn:updateSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSO">
+            <soap12:operation soapAction="urn:getNoSO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSuratJalan">
+            <soap12:operation soapAction="urn:insertSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailNotApproved">
+            <soap12:operation soapAction="urn:getQuotationDetailNotApproved" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanHeader">
+            <soap12:operation soapAction="urn:updateSuratJalanHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBuktiSO">
+            <soap12:operation soapAction="urn:getNoBuktiSO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrderGroup">
+            <soap12:operation soapAction="urn:deleteSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderDetail">
+            <soap12:operation soapAction="urn:updateSalesOrderDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailSOOut">
+            <soap12:operation soapAction="urn:getQuotationDetailSOOut" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrder">
+            <soap12:operation soapAction="urn:getSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanGroup">
+            <soap12:operation soapAction="urn:updateSuratJalanGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanGrouping">
+            <soap12:operation soapAction="urn:getSuratJalanGrouping" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderHeader">
+            <soap12:operation soapAction="urn:getSalesOrderHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBukti">
+            <soap12:operation soapAction="urn:getNoBukti" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderGroup">
+            <soap12:operation soapAction="urn:updateSalesOrderGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrder">
+            <soap12:operation soapAction="urn:insertSalesOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalan">
+            <soap12:operation soapAction="urn:updateSuratJalan" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getStockBalance">
+            <soap12:operation soapAction="urn:getStockBalance" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotation">
+            <soap12:operation soapAction="urn:updateQuotation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanDetail">
+            <soap12:operation soapAction="urn:getSuratJalanDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkSOExist">
+            <soap12:operation soapAction="urn:checkSOExist" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="cetakQuotation">
+            <soap12:operation soapAction="urn:cetakQuotation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationGroup">
+            <soap12:operation soapAction="urn:updateQuotationGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanHeader">
+            <soap12:operation soapAction="urn:getSuratJalanHeader" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DAException">
+                <soap12:fault use="literal" name="DAException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SalesHttpBinding" type="axis2:SalesPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getKartuService">
+            <http:operation location="Sales/getKartuService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getKartuService"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getKartuService"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="approved">
+            <http:operation location="Sales/approved"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="approved"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="approved"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insertQuotation">
+            <http:operation location="Sales/insertQuotation"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="insertQuotation"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="insertQuotation"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrder">
+            <http:operation location="Sales/deleteSalesOrder"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="deleteSalesOrder"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="deleteSalesOrder"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderHeader">
+            <http:operation location="Sales/updateSalesOrderHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSalesOrderHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSalesOrderHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insertGrouping">
+            <http:operation location="Sales/insertGrouping"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="insertGrouping"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="insertGrouping"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGrouping">
+            <http:operation location="Sales/getGrouping"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getGrouping"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getGrouping"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesGrouping">
+            <http:operation location="Sales/getSalesGrouping"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSalesGrouping"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSalesGrouping"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanDetail">
+            <http:operation location="Sales/updateSuratJalanDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSuratJalanDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSuratJalanDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrderGroup">
+            <http:operation location="Sales/insertSalesOrderGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="insertSalesOrderGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="insertSalesOrderGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderBiaya">
+            <http:operation location="Sales/getSalesOrderBiaya"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSalesOrderBiaya"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSalesOrderBiaya"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetail">
+            <http:operation location="Sales/getQuotationDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getQuotationDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getQuotationDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotationGroup">
+            <http:operation location="Sales/deleteQuotationGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="deleteQuotationGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="deleteQuotationGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSJ">
+            <http:operation location="Sales/getNoSJ"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getNoSJ"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getNoSJ"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationHeader">
+            <http:operation location="Sales/updateQuotationHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateQuotationHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateQuotationHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSuratJalan">
+            <http:operation location="Sales/deleteSuratJalan"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="deleteSuratJalan"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="deleteSuratJalan"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderDetail">
+            <http:operation location="Sales/getSalesOrderDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSalesOrderDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSalesOrderDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteQuotation">
+            <http:operation location="Sales/deleteQuotation"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="deleteQuotation"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="deleteQuotation"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationDetail">
+            <http:operation location="Sales/updateQuotationDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateQuotationDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateQuotationDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalan">
+            <http:operation location="Sales/getSuratJalan"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSuratJalan"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSuratJalan"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationHeader">
+            <http:operation location="Sales/getQuotationHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getQuotationHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getQuotationHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrder">
+            <http:operation location="Sales/updateSalesOrder"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSalesOrder"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSalesOrder"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNoSO">
+            <http:operation location="Sales/getNoSO"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getNoSO"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getNoSO"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insertSuratJalan">
+            <http:operation location="Sales/insertSuratJalan"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="insertSuratJalan"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="insertSuratJalan"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailNotApproved">
+            <http:operation location="Sales/getQuotationDetailNotApproved"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getQuotationDetailNotApproved"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getQuotationDetailNotApproved"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanHeader">
+            <http:operation location="Sales/updateSuratJalanHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSuratJalanHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSuratJalanHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBuktiSO">
+            <http:operation location="Sales/getNoBuktiSO"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getNoBuktiSO"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getNoBuktiSO"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteSalesOrderGroup">
+            <http:operation location="Sales/deleteSalesOrderGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="deleteSalesOrderGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="deleteSalesOrderGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderDetail">
+            <http:operation location="Sales/updateSalesOrderDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSalesOrderDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSalesOrderDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getQuotationDetailSOOut">
+            <http:operation location="Sales/getQuotationDetailSOOut"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getQuotationDetailSOOut"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getQuotationDetailSOOut"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrder">
+            <http:operation location="Sales/getSalesOrder"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSalesOrder"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSalesOrder"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalanGroup">
+            <http:operation location="Sales/updateSuratJalanGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSuratJalanGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSuratJalanGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanGrouping">
+            <http:operation location="Sales/getSuratJalanGrouping"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSuratJalanGrouping"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSuratJalanGrouping"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSalesOrderHeader">
+            <http:operation location="Sales/getSalesOrderHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSalesOrderHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSalesOrderHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNoBukti">
+            <http:operation location="Sales/getNoBukti"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getNoBukti"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getNoBukti"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSalesOrderGroup">
+            <http:operation location="Sales/updateSalesOrderGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSalesOrderGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSalesOrderGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insertSalesOrder">
+            <http:operation location="Sales/insertSalesOrder"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="insertSalesOrder"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="insertSalesOrder"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateSuratJalan">
+            <http:operation location="Sales/updateSuratJalan"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateSuratJalan"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateSuratJalan"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStockBalance">
+            <http:operation location="Sales/getStockBalance"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getStockBalance"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getStockBalance"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotation">
+            <http:operation location="Sales/updateQuotation"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateQuotation"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateQuotation"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanDetail">
+            <http:operation location="Sales/getSuratJalanDetail"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSuratJalanDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSuratJalanDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkSOExist">
+            <http:operation location="Sales/checkSOExist"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="checkSOExist"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="checkSOExist"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cetakQuotation">
+            <http:operation location="Sales/cetakQuotation"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="cetakQuotation"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="cetakQuotation"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateQuotationGroup">
+            <http:operation location="Sales/updateQuotationGroup"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="updateQuotationGroup"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="updateQuotationGroup"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSuratJalanHeader">
+            <http:operation location="Sales/getSuratJalanHeader"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getSuratJalanHeader"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getSuratJalanHeader"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Sales">
+        <wsdl:port name="SalesHttpSoap11Endpoint" binding="axis2:SalesSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/Sales.SalesHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SalesHttpSoap12Endpoint" binding="axis2:SalesSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/Sales.SalesHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SalesHttpEndpoint" binding="axis2:SalesHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/Sales.SalesHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

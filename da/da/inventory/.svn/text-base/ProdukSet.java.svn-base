@@ -1,0 +1,154 @@
+package da.inventory;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import org.apache.log4j.Category;
+
+import da.error.DAException;
+import da.factory.DBEngine;
+
+public class ProdukSet {
+	private DBEngine db=null;
+	static final Category log = Category.getInstance(ProdukSet.class);
+	public ProdukSet() throws DAException
+	{
+		db=new DBEngine();
+		if(!db.connect()) throw new DAException("Could not connect to database");
+	}
+	@SuppressWarnings("unchecked")
+	public sf.inventory.ProdukSet[] getProdukSet(String cmpType) throws DAException
+	{
+		sf.inventory.ProdukSet[] items;// new Branch[count];
+		try
+		{
+			String strSQL="SELECT a.*,b.nbarang,b.satuan FROM mprodukset a," + (cmpType.equals("EPP")?"mproduk" :"wproduk")   + " b where a.kbarang=b.kbarang  and a.recstatus<>?";
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, "D");
+			Vector rows = db.getData(p);
+			int count=rows.size();
+			items = new sf.inventory.ProdukSet[count];
+			for(int i=0; i < count;i++)
+			{
+				Vector v=(Vector)rows.get(i);
+				sf.inventory.ProdukSet item=new sf.inventory.ProdukSet();
+				item.setKbarang(v.get(0).toString());
+				item.setKbarang1(v.get(1).toString());
+				item.setKqty(Double.parseDouble(v.get(2).toString()));
+				
+				item.setRecstatus(v.get(3).toString());
+				item.setTglupdate(Long.parseLong(v.get(4).toString()));
+				item.setUserupdate(v.get(5).toString());
+				item.setNbarang1(v.get(6).toString());
+				item.setSatuan(v.get(7).toString());
+				items[i] = item;
+			}
+		}
+		catch(Exception ex)
+		{
+			throw new DAException (ex.getLocalizedMessage());
+		}
+		
+		return items;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public sf.inventory.ProdukSet[] getProdukSet(String kbarang,String cmpType) throws DAException
+	{
+		sf.inventory.ProdukSet[] items;// new Branch[count];
+		
+		try
+		{
+			String strSQL="SELECT a.*,b.nbarang,b.satuan FROM mprodukset a," + (cmpType.equals("EPP") ? "mproduk":"wproduk") + " b where a.kbarang=b.kbarang and a.recstatus<>? and a.kbarang=?";
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, "D");
+			p.setString(2, kbarang);
+			Vector rows = db.getData(p);
+			int count=rows.size();
+			items = new sf.inventory.ProdukSet[count];
+			for(int i=0; i < count;i++)
+			{
+				Vector v=(Vector)rows.get(i);
+				sf.inventory.ProdukSet item=new sf.inventory.ProdukSet();
+				item.setKbarang(v.get(0).toString());
+				item.setKbarang1(v.get(1).toString());
+				item.setKqty(Double.parseDouble(v.get(2).toString()));
+				
+				item.setRecstatus(v.get(3).toString());
+				item.setTglupdate(Long.parseLong(v.get(4).toString()));
+				item.setUserupdate(v.get(5).toString());
+				item.setNbarang1(v.get(6).toString());
+				item.setSatuan(v.get(7).toString());
+				items[i]=item;
+			}
+		}
+		catch(Exception ex)
+		{
+			throw new DAException (ex.getLocalizedMessage());
+		}
+		
+		return items;
+	}
+	
+	public boolean insertProdukSet(sf.inventory.ProdukSet produk) throws DAException
+	{
+		if(produk.checkIsNULL())
+		{
+			throw new DAException(produk.getErr());
+		}
+		
+		String strSQL="INSERT INTO mprodukset values (?,?,?,?,?,?)";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, produk.getKbarang());
+			p.setString(2, produk.getKbarang1());
+			p.setDouble(3, produk.getKqty());
+			
+			p.setString(4, produk.getRecstatus());
+			p.setLong(5, produk.getTglupdate());
+			p.setString(6, produk.getUserupdate());
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+	
+	public boolean updateProdukSet(sf.inventory.ProdukSet produk) throws DAException
+	{
+		if(produk.checkIsNULL())
+		{
+			throw new DAException(produk.getErr());
+		}
+		
+		String strSQL="UPDATE mprodukset SET kbarang1=?,kqty=?,recstatus=?,tglupdate=?,userupdate=? where kbarang=?";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, produk.getKbarang1());
+			p.setDouble(2, produk.getKqty());
+			
+			p.setString(3, produk.getRecstatus());
+			p.setLong(4, produk.getTglupdate());
+			p.setString(5, produk.getUserupdate());
+			p.setString(6, produk.getKbarang());			
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+	
+	public boolean deleteProdukSet(String kbarang) throws DAException
+	{
+		String strSQL="DELETE FROM mprodukset where kbarang=?";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, kbarang);
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+}

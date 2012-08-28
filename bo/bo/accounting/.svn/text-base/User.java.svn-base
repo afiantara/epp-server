@@ -1,0 +1,59 @@
+package bo.accounting;
+
+import da.error.DAException;
+
+
+public class User {
+	
+	private da.accounting.User daUser=null;
+	
+	public User() throws DAException
+	{
+		daUser=new da.accounting.User();
+	}
+	
+	public boolean insertUser(sf.accounting.User user) throws DAException
+	{
+		return daUser.insertUser(user);
+	}
+	
+	public boolean changePassword(sf.accounting.User userOld,String newPassword) throws DAException
+	{
+		return daUser.changePassword(userOld, newPassword);
+	}
+	
+	public boolean login(sf.accounting.User user) throws DAException
+	{
+		return daUser.login(user);
+	}
+	
+	public sf.accounting.User[] getUsers() throws DAException
+	{
+		return daUser.getUsers();
+	}
+	
+	public boolean deleteUser(sf.accounting.User user) throws DAException
+	{
+		return daUser.deleteUser(user);
+	}
+	
+	public boolean updateUser(sf.accounting.User user) throws DAException
+	{
+		return daUser.updateUser(user);
+	}
+	
+	public sf.accounting.User getUser(String userID) throws DAException
+	{
+		return daUser.getUser(userID);
+	}
+	
+	public sf.accounting.User[] getUserByJabatan(String kode) throws DAException
+	{
+		return daUser.getUserByJabatan(kode);
+	}
+	
+	public boolean aliasIsExist(String kstaff, long alias) throws DAException
+	{
+		return daUser.aliasIsExist(kstaff,alias);
+	}
+}

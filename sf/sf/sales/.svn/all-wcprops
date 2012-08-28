@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/13/trunk/server/sf/sf/sales
+END
+QuotationGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/QuotationGroup.java
+END
+SOrderBiaya.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SOrderBiaya.java
+END
+SDPayment.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SDPayment.java
+END
+InvoiceHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/InvoiceHeader.java
+END
+SCardHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SCardHeader.java
+END
+StockRekap.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/StockRekap.java
+END
+QuotationDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/QuotationDetail.java
+END
+InvoiceGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/InvoiceGroup.java
+END
+ReturHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/ReturHeader.java
+END
+SalesOrderHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SalesOrderHeader.java
+END
+SuratJalanHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SuratJalanHeader.java
+END
+InvoiceDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/InvoiceDetail.java
+END
+SalesOrderGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SalesOrderGroup.java
+END
+SuratJalanGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SuratJalanGroup.java
+END
+ReturDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/ReturDetail.java
+END
+SalesOrderDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SalesOrderDetail.java
+END
+SuratJalanDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/SuratJalanDetail.java
+END
+StockAlokasi.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/StockAlokasi.java
+END
+QuotationHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/13/trunk/server/sf/sf/sales/QuotationHeader.java
+END

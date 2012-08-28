@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="bo"/>
+	<classpathentry kind="src" path="da"/>
+	<classpathentry kind="src" path="sf"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="encryptor.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/org.apache.axis_1.4.0.v200905122109/lib/axis.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/org.apache.commons.discovery_0.2.0.v200905122109/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/javax.xml.rpc_1.1.0.v200905122109/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/javax.xml.soap_1.2.0.v200905122109/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/javax.wsdl_1.5.1.v200806030408.jar"/>
+	<classpathentry kind="lib" path="C:/oepe-galileo-all-in-one-11.1.1.5.0.201003170852-win32/plugins/org.apache.commons.logging_1.0.4.v200904062259.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,40 @@
+package bo.crm;
+
+import da.error.DAException;
+
+public class Customer {
+	private da.crm.Customer daCust;
+	public Customer() throws DAException
+	{
+		daCust=new da.crm.Customer();
+	}
+	
+	public sf.crm.Customer[] getCustomers(String cmpType) throws DAException
+	{
+		return daCust.getCustomers(cmpType);
+	}
+	
+	public sf.crm.Customer getCustomer(String kclient,String cmpType) throws DAException
+	{
+		return daCust.getCustomer(kclient,cmpType);
+	}
+	
+	public sf.crm.Customer[] getCustomersByCabang(String kcabang,String cmpType) throws DAException
+	{
+		return daCust.getCustomersByCabang(kcabang,cmpType);
+	}
+	public boolean insertCustomer(sf.crm.Customer cust,String cmpType) throws DAException
+	{
+		return daCust.insertCustomer(cust,cmpType);
+	}
+	
+	public boolean updateCustomer(sf.crm.Customer cust,String cmpType) throws DAException
+	{
+		return daCust.updateCustomer(cust,cmpType);
+	}
+	
+	public boolean deleteCustomer(String kclient,String cmpType) throws DAException
+	{
+		return daCust.deleteCustomer(kclient,cmpType);
+	}
+}

@@ -1,0 +1,4 @@
+driver=com.mysql.jdbc.Driver
+header=jdbc:mysql://localhost/erp?
+userid=root
+password=password

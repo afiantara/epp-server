@@ -1,0 +1,588 @@
+package da.crm;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import org.apache.log4j.Category;
+
+import da.error.DAException;
+import da.factory.DBEngine;
+
+public class Customer {
+	private DBEngine db=null;
+	static final Category log = Category.getInstance(Customer.class);
+	public Customer() throws DAException
+	{
+		db=new DBEngine();
+		if(!db.connect()) throw new DAException("Could not connect to database");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public sf.crm.Customer[] getCustomers(String cmpType) throws DAException
+	{
+		sf.crm.Customer[] items;// new Branch[count];
+		try
+		{
+			String strSQL="SELECT * FROM " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " where recstatus<>?";
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, "D");
+			Vector rows = db.getData(p);
+			int count=rows.size();
+			items = new sf.crm.Customer[count];
+			for(int i=0; i < count;i++)
+			{
+				Vector v=(Vector)rows.get(i);
+				sf.crm.Customer item=new sf.crm.Customer();
+				item.setKclient(v.get(0).toString());
+				item.setNclient(v.get(1).toString());
+				item.setKindustri(v.get(2).toString());
+				item.setKclass(v.get(3).toString());
+				item.setKstatus(v.get(4).toString());
+				item.setKinvoice(v.get(5).toString());
+				item.setKsales(v.get(6).toString());
+				item.setKcabang(v.get(7).toString());
+				item.setKclient1(v.get(8).toString());
+				item.setNpwp(v.get(9).toString());
+				item.setNppkp(v.get(10).toString());
+				item.setKdtrs(v.get(11).toString());
+				item.setPlafond(Double.parseDouble(v.get(12).toString()));
+				item.setJtempo(Integer.parseInt(v.get(13).toString()));
+				item.setTfaktur1(v.get(14).toString());
+				item.setTfaktur2(v.get(15).toString());
+				item.setTfaktur3(v.get(16).toString());
+				item.setTfaktur4(v.get(17).toString());
+				item.setTfaktur5(v.get(18).toString());
+				item.setTfaktur6(v.get(19).toString());
+				
+				item.setTalamat1(v.get(20).toString());
+				item.setTalamat2(v.get(21).toString());
+				item.setTalamat3(v.get(22).toString());
+				item.setTkota(v.get(23).toString());
+				item.setTkodepos(v.get(24).toString());
+				item.setTnotelp(v.get(25).toString());
+				item.setTnofax(v.get(26).toString());	
+				item.setTemail(v.get(27).toString());
+				item.setTkontak1(v.get(28).toString());
+				item.setTkontak2(v.get(29).toString());
+				item.setTnohp1(v.get(30).toString());
+				item.setTnohp2(v.get(31).toString());
+				item.setTemail1(v.get(32).toString());
+				item.setTemail2(v.get(33).toString());
+				
+				item.setIalamat1(v.get(34).toString());
+				item.setIalamat2(v.get(35).toString());
+				item.setIalamat3(v.get(36).toString());
+				item.setIkota(v.get(37).toString());
+				item.setIkodepos(v.get(38).toString());
+				item.setInotelp(v.get(39).toString());
+				item.setInofax(v.get(40).toString());
+				item.setIemail(v.get(41).toString());
+				item.setIkontak1(v.get(42).toString());
+				item.setIkontak2(v.get(43).toString());
+				item.setInohp1(v.get(44).toString());
+				item.setInohp2(v.get(45).toString());
+				item.setIemail1(v.get(46).toString());
+				item.setIemail2(v.get(47).toString());
+				
+				item.setKalamat1(v.get(48).toString());
+				item.setKalamat2(v.get(49).toString());
+				item.setKalamat3(v.get(50).toString());
+				item.setKkota(v.get(51).toString());
+				item.setKkodepos(v.get(52).toString());
+				item.setKnotelp(v.get(53).toString());
+				item.setKnofax(v.get(54).toString());
+				item.setKemail(v.get(55).toString());
+				item.setKkontak1(v.get(56).toString());
+				item.setKkontak2(v.get(57).toString());
+				item.setKnohp1(v.get(58).toString());
+				item.setKnohp2(v.get(59).toString());
+				item.setKemail1(v.get(60).toString());
+				item.setKemail2(v.get(61).toString());
+				
+				item.setPalamat1(v.get(62).toString());
+				item.setPalamat2(v.get(63).toString());
+				item.setPalamat3(v.get(64).toString());
+				item.setPkota(v.get(65).toString());
+				item.setPkodepos(v.get(66).toString());
+				item.setPnotelp(v.get(67).toString());
+				item.setPnofax(v.get(68).toString());
+				item.setPemail(v.get(69).toString());
+				item.setPkontak1(v.get(70).toString());
+				item.setPkontak2(v.get(71).toString());
+				item.setPnohp1(v.get(72).toString());
+				item.setPnohp2(v.get(73).toString());
+				item.setPemail1(v.get(74).toString());
+				item.setPemail2(v.get(75).toString());
+				
+				item.setRecstatus(v.get(76).toString());
+				item.setTglupdate(Long.parseLong(v.get(77).toString()));
+				item.setUserupdate(v.get(78).toString());
+				
+				items[i] = item;
+			}
+		}
+		catch(Exception ex)
+		{
+			throw new DAException (ex.getLocalizedMessage());
+		}
+		
+		return items;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public sf.crm.Customer[] getCustomersByCabang(String kcabang,String cmpType) throws DAException
+	{
+		sf.crm.Customer[] items;// new Branch[count];
+		try
+		{
+			String strSQL="SELECT * FROM " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " where recstatus<>? and kcabang=?";
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, "D");
+			p.setString(2, kcabang);
+			Vector rows = db.getData(p);
+			int count=rows.size();
+			items = new sf.crm.Customer[count];
+			for(int i=0; i < count;i++)
+			{
+				Vector v=(Vector)rows.get(i);
+				sf.crm.Customer item=new sf.crm.Customer();
+				item.setKclient(v.get(0).toString());
+				item.setNclient(v.get(1).toString());
+				item.setKindustri(v.get(2).toString());
+				item.setKclass(v.get(3).toString());
+				item.setKstatus(v.get(4).toString());
+				item.setKinvoice(v.get(5).toString());
+				item.setKsales(v.get(6).toString());
+				item.setKcabang(v.get(7).toString());
+				item.setKclient1(v.get(8).toString());
+				item.setNpwp(v.get(9).toString());
+				item.setNppkp(v.get(10).toString());
+				item.setKdtrs(v.get(11).toString());
+				item.setPlafond(Double.parseDouble(v.get(12).toString()));
+				item.setJtempo(Integer.parseInt(v.get(13).toString()));
+				item.setTfaktur1(v.get(14).toString());
+				item.setTfaktur2(v.get(15).toString());
+				item.setTfaktur3(v.get(16).toString());
+				item.setTfaktur4(v.get(17).toString());
+				item.setTfaktur5(v.get(18).toString());
+				item.setTfaktur6(v.get(19).toString());
+				
+				item.setTalamat1(v.get(20).toString());
+				item.setTalamat2(v.get(21).toString());
+				item.setTalamat3(v.get(22).toString());
+				item.setTkota(v.get(23).toString());
+				item.setTkodepos(v.get(24).toString());
+				item.setTnotelp(v.get(25).toString());
+				item.setTnofax(v.get(26).toString());	
+				item.setTemail(v.get(27).toString());
+				item.setTkontak1(v.get(28).toString());
+				item.setTkontak2(v.get(29).toString());
+				item.setTnohp1(v.get(30).toString());
+				item.setTnohp2(v.get(31).toString());
+				item.setTemail1(v.get(32).toString());
+				item.setTemail2(v.get(33).toString());
+				
+				item.setIalamat1(v.get(34).toString());
+				item.setIalamat2(v.get(35).toString());
+				item.setIalamat3(v.get(36).toString());
+				item.setIkota(v.get(37).toString());
+				item.setIkodepos(v.get(38).toString());
+				item.setInotelp(v.get(39).toString());
+				item.setInofax(v.get(40).toString());
+				item.setIemail(v.get(41).toString());
+				item.setIkontak1(v.get(42).toString());
+				item.setIkontak2(v.get(43).toString());
+				item.setInohp1(v.get(44).toString());
+				item.setInohp2(v.get(45).toString());
+				item.setIemail1(v.get(46).toString());
+				item.setIemail2(v.get(47).toString());
+				
+				item.setKalamat1(v.get(48).toString());
+				item.setKalamat2(v.get(49).toString());
+				item.setKalamat3(v.get(50).toString());
+				item.setKkota(v.get(51).toString());
+				item.setKkodepos(v.get(52).toString());
+				item.setKnotelp(v.get(53).toString());
+				item.setKnofax(v.get(54).toString());
+				item.setKemail(v.get(55).toString());
+				item.setKkontak1(v.get(56).toString());
+				item.setKkontak2(v.get(57).toString());
+				item.setKnohp1(v.get(58).toString());
+				item.setKnohp2(v.get(59).toString());
+				item.setKemail1(v.get(60).toString());
+				item.setKemail2(v.get(61).toString());
+				
+				item.setPalamat1(v.get(62).toString());
+				item.setPalamat2(v.get(63).toString());
+				item.setPalamat3(v.get(64).toString());
+				item.setPkota(v.get(65).toString());
+				item.setPkodepos(v.get(66).toString());
+				item.setPnotelp(v.get(67).toString());
+				item.setPnofax(v.get(68).toString());
+				item.setPemail(v.get(69).toString());
+				item.setPkontak1(v.get(70).toString());
+				item.setPkontak2(v.get(71).toString());
+				item.setPnohp1(v.get(72).toString());
+				item.setPnohp2(v.get(73).toString());
+				item.setPemail1(v.get(74).toString());
+				item.setPemail2(v.get(75).toString());
+				
+				item.setRecstatus(v.get(76).toString());
+				item.setTglupdate(Long.parseLong(v.get(77).toString()));
+				item.setUserupdate(v.get(78).toString());
+				
+				items[i] = item;
+			}
+		}
+		catch(Exception ex)
+		{
+			throw new DAException (ex.getLocalizedMessage());
+		}
+		
+		return items;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public sf.crm.Customer getCustomer(String kclient,String cmpType) throws DAException
+	{
+		sf.crm.Customer item=new sf.crm.Customer();
+		try
+		{
+			String strSQL="SELECT * FROM " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " where recstatus<>? and kclient=?";
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, "D");
+			p.setString(2, kclient);
+			Vector rows = db.getData(p);
+			int count=rows.size();
+			for(int i=0; i < count;i++)
+			{
+				Vector v=(Vector)rows.get(i);
+				
+				item.setKclient(v.get(0).toString());
+				item.setNclient(v.get(1).toString());
+				item.setKindustri(v.get(2).toString());
+				item.setKclass(v.get(3).toString());
+				item.setKstatus(v.get(4).toString());
+				item.setKinvoice(v.get(5).toString());
+				item.setKsales(v.get(6).toString());
+				item.setKcabang(v.get(7).toString());
+				item.setKclient1(v.get(8).toString());
+				item.setNpwp(v.get(9).toString());
+				item.setNppkp(v.get(10).toString());
+				item.setKdtrs(v.get(11).toString());
+				item.setPlafond(Double.parseDouble(v.get(12).toString()));
+				item.setJtempo(Integer.parseInt(v.get(13).toString()));
+				item.setTfaktur1(v.get(14).toString());
+				item.setTfaktur2(v.get(15).toString());
+				item.setTfaktur3(v.get(16).toString());
+				item.setTfaktur4(v.get(17).toString());
+				item.setTfaktur5(v.get(18).toString());
+				item.setTfaktur6(v.get(19).toString());
+				
+				item.setTalamat1(v.get(20).toString());
+				item.setTalamat2(v.get(21).toString());
+				item.setTalamat3(v.get(22).toString());
+				item.setTkota(v.get(23).toString());
+				item.setTkodepos(v.get(24).toString());
+				item.setTnotelp(v.get(25).toString());
+				item.setTnofax(v.get(26).toString());	
+				item.setTemail(v.get(27).toString());
+				item.setTkontak1(v.get(28).toString());
+				item.setTkontak2(v.get(29).toString());
+				item.setTnohp1(v.get(30).toString());
+				item.setTnohp2(v.get(31).toString());
+				item.setTemail1(v.get(32).toString());
+				item.setTemail2(v.get(33).toString());
+				
+				item.setIalamat1(v.get(34).toString());
+				item.setIalamat2(v.get(35).toString());
+				item.setIalamat3(v.get(36).toString());
+				item.setIkota(v.get(37).toString());
+				item.setIkodepos(v.get(38).toString());
+				item.setInotelp(v.get(39).toString());
+				item.setInofax(v.get(40).toString());
+				item.setIemail(v.get(41).toString());
+				item.setIkontak1(v.get(42).toString());
+				item.setIkontak2(v.get(43).toString());
+				item.setInohp1(v.get(44).toString());
+				item.setInohp2(v.get(45).toString());
+				item.setIemail1(v.get(46).toString());
+				item.setIemail2(v.get(47).toString());
+				
+				item.setKalamat1(v.get(48).toString());
+				item.setKalamat2(v.get(49).toString());
+				item.setKalamat3(v.get(50).toString());
+				item.setKkota(v.get(51).toString());
+				item.setKkodepos(v.get(52).toString());
+				item.setKnotelp(v.get(53).toString());
+				item.setKnofax(v.get(54).toString());
+				item.setKemail(v.get(55).toString());
+				item.setKkontak1(v.get(56).toString());
+				item.setKkontak2(v.get(57).toString());
+				item.setKnohp1(v.get(58).toString());
+				item.setKnohp2(v.get(59).toString());
+				item.setKemail1(v.get(60).toString());
+				item.setKemail2(v.get(61).toString());
+				
+				item.setPalamat1(v.get(62).toString());
+				item.setPalamat2(v.get(63).toString());
+				item.setPalamat3(v.get(64).toString());
+				item.setPkota(v.get(65).toString());
+				item.setPkodepos(v.get(66).toString());
+				item.setPnotelp(v.get(67).toString());
+				item.setPnofax(v.get(68).toString());
+				item.setPemail(v.get(69).toString());
+				item.setPkontak1(v.get(70).toString());
+				item.setPkontak2(v.get(71).toString());
+				item.setPnohp1(v.get(72).toString());
+				item.setPnohp2(v.get(73).toString());
+				item.setPemail1(v.get(74).toString());
+				item.setPemail2(v.get(75).toString());
+				
+				item.setRecstatus(v.get(76).toString());
+				item.setTglupdate(Long.parseLong(v.get(77).toString()));
+				item.setUserupdate(v.get(78).toString());
+			}
+		}
+		catch(Exception ex)
+		{
+			throw new DAException (ex.getLocalizedMessage());
+		}
+		
+		return item;
+	}
+	
+	public boolean insertCustomer(sf.crm.Customer cust,String cmpType) throws DAException
+	{
+		if(cust.checkIsNULL())
+		{
+			throw new DAException(cust.getErr());
+		}
+		
+		String strSQL="INSERT INTO " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " values (?,?,?,?,?,?,?,?,?,?," +
+													"?,?,?,?,?,?,?,?,?,?," +
+													"?,?,?,?,?,?,?,?,?,?,"+
+													"?,?,?,?,?,?,?,?,?,?," +
+													"?,?,?,?,?,?,?,?,?,?,"+
+													"?,?,?,?,?,?,?,?,?,?,"+
+													"?,?,?,?,?,?,?,?,?,?,"+
+													"?,?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1,cust.getKclient());
+			p.setString(2,cust.getNclient());
+			p.setString(3,cust.getKindustri());
+			p.setString(4,cust.getKclass());
+			p.setString(5,cust.getKstatus());
+			p.setString(6,cust.getKinvoice());
+			p.setString(7,cust.getKsales());
+			p.setString(8,cust.getKcabang());
+			p.setString(9,cust.getKclient1());
+			p.setString(10,cust.getNpwp());
+			p.setString(11,cust.getNppkp());
+			p.setString(12,cust.getKdtrs());
+			p.setDouble(13,cust.getPlafond());
+			p.setInt(14,cust.getJtempo());
+			p.setString(15,cust.getTfaktur1());
+			p.setString(16,cust.getTfaktur2());
+			p.setString(17,cust.getTfaktur3());
+			p.setString(18,	cust.getTfaktur4());
+			p.setString(19,	cust.getTfaktur5());
+			p.setString(20,		cust.getTfaktur6());
+			
+			p.setString(21,			cust.getTalamat1());
+			p.setString(22,		cust.getTalamat2());
+			p.setString(23,		cust.getTalamat3());
+			p.setString(24,		cust.getTkota());
+			p.setString(25,		cust.getTkodepos());
+			p.setString(26,		cust.getTnotelp());
+			p.setString(27,		cust.getTnofax());
+			p.setString(28,		cust.getTemail());
+			p.setString(29,			cust.getTkontak1());
+			p.setString(30,		cust.getTkontak2());
+			p.setString(31,			cust.getTnohp1());
+			p.setString(32,			cust.getTnohp2());
+			p.setString(33,		cust.getTemail1());
+			p.setString(34,			cust.getTemail2());
+			
+			p.setString(35,			cust.getIalamat1());
+			p.setString(36,		cust.getIalamat2());
+			p.setString(37,		cust.getIalamat3());
+			p.setString(38,		cust.getIkota());
+			p.setString(39,	cust.getIkodepos());
+			p.setString(40,	cust.getInotelp());
+			p.setString(41,	cust.getInofax());
+			p.setString(42,	cust.getIemail());
+			p.setString(43,		cust.getIkontak1());
+			p.setString(44,		cust.getIkontak2());
+			p.setString(45,		cust.getInohp1());
+			p.setString(46,		cust.getInohp2());
+			p.setString(47,		cust.getIemail1());
+			p.setString(48,		cust.getIemail2());
+			
+			p.setString(49,		cust.getKalamat1());
+			p.setString(50,		cust.getKalamat2());
+			p.setString(51,			cust.getKalamat3());
+			p.setString(52,		cust.getKkota());
+			p.setString(53,			cust.getKkodepos());
+			p.setString(54,		cust.getKnotelp());
+			p.setString(55,		cust.getKnofax());
+			p.setString(56,		cust.getKemail());
+			p.setString(57,		cust.getKkontak1());
+			p.setString(58,		cust.getKkontak2());
+			p.setString(59,			cust.getKnohp1());
+			p.setString(60,		cust.getKnohp2());
+			p.setString(61,		cust.getKemail1());
+			p.setString(62,		cust.getKemail2());
+			
+			p.setString(63,		cust.getPalamat1());
+			p.setString(64,			cust.getPalamat2());
+			p.setString(65,		cust.getPalamat3());
+			p.setString(66,		cust.getPkota());
+			p.setString(67,			cust.getPkodepos());
+			p.setString(68,	cust.getPnotelp());
+			p.setString(69,cust.getPnofax());
+			p.setString(70,	cust.getPemail());
+			p.setString(71,	cust.getPkontak1());
+			p.setString(72,	cust.getPkontak2());
+			p.setString(73,	cust.getPnohp1());
+			p.setString(74,	cust.getPnohp2());
+			p.setString(75,	cust.getPemail1());
+			p.setString(76,	cust.getPemail2());
+			
+			
+			p.setString(77,	cust.getRecstatus());
+			p.setLong(78,	cust.getTglupdate());
+			p.setString(79,	cust.getUserupdate());
+			
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+	
+	public boolean updateCustomer(sf.crm.Customer cust,String cmpType) throws DAException
+	{
+		if(cust.checkIsNULL())
+		{
+			throw new DAException(cust.getErr());
+		}
+		
+		String strSQL="UPDATE " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " set nclient=?,kindustri=?,kclass=?,kstatus=?,kinvoice=?,ksales=?,kcabang=?,kclient1=?,npwp=?," +
+				"nppkp=?,kdtrs=?,plafond=?,jtempo=?,tfaktur1=?,tfaktur2=?,tfaktur3=?,tfaktur4=?,tfaktur5=?,tfaktur6=?," +
+				"talamat1=?,talamat2=?,talamat3=?,tkota=?,tkodepos=?,tnotelp=?,tnofax=?,temail=?,tkontak1=?,tkontak2=?,tnohp1=?,tnohp2=?,temail1=?,temail2=?," +
+				"ialamat1=?,ialamat2=?,ialamat3=?,ikota=?,ikodepos=?,inotelp=?,inofax=?,iemail=?,ikontak1=?,ikontak2=?,inohp1=?,inohp2=?,iemail1=?,iemail2=?," +
+				"kalamat1=?,kalamat2=?,kalamat3=?,kkota=?,kkodepos=?,knotelp=?,knofax=?,kemail=?,kkontak1=?,kkontak2=?,knohp1=?,knohp2=?,kemail1=?,kemail2=?," +
+				"palamat1=?,palamat2=?,palamat3=?,pkota=?,pkodepos=?,pnotelp=?,pnofax=?,pemail=?,pkontak1=?,pkontak2=?,pnohp1=?,pnohp2=?,pemail1=?,pemail2=?," +
+				"recstatus=?,tglupdate=?,userupdate=? where kclient=?";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			
+			p.setString(1,cust.getNclient());
+			p.setString(2,cust.getKindustri());
+			p.setString(3,cust.getKclass());
+			p.setString(4,cust.getKstatus());
+			p.setString(5,cust.getKinvoice());
+			p.setString(6,cust.getKsales());
+			p.setString(7,cust.getKcabang());
+			p.setString(8,cust.getKclient1());
+			p.setString(9,cust.getNpwp());
+			p.setString(10,cust.getNppkp());
+			p.setString(11,cust.getKdtrs());
+			p.setDouble(12,cust.getPlafond());
+			p.setInt(13,cust.getJtempo());
+			p.setString(14,cust.getTfaktur1());
+			p.setString(15,cust.getTfaktur2());
+			p.setString(16,cust.getTfaktur3());
+			p.setString(17,	cust.getTfaktur4());
+			p.setString(18,	cust.getTfaktur5());
+			p.setString(19,		cust.getTfaktur6());
+			
+			p.setString(20,			cust.getTalamat1());
+			p.setString(21,		cust.getTalamat2());
+			p.setString(22,		cust.getTalamat3());
+			p.setString(23,		cust.getTkota());
+			p.setString(24,		cust.getTkodepos());
+			p.setString(25,		cust.getTnotelp());
+			p.setString(26,		cust.getTnofax());
+			p.setString(27,		cust.getTemail());
+			p.setString(28,			cust.getTkontak1());
+			p.setString(29,		cust.getTkontak2());
+			p.setString(30,			cust.getTnohp1());
+			p.setString(31,			cust.getTnohp2());
+			p.setString(32,		cust.getTemail1());
+			p.setString(33,			cust.getTemail2());
+			
+			p.setString(34,			cust.getIalamat1());
+			p.setString(35,		cust.getIalamat2());
+			p.setString(36,		cust.getIalamat3());
+			p.setString(37,		cust.getIkota());
+			p.setString(38,	cust.getIkodepos());
+			p.setString(39,	cust.getInotelp());
+			p.setString(40,	cust.getInofax());
+			p.setString(41,	cust.getIemail());
+			p.setString(42,		cust.getIkontak1());
+			p.setString(43,		cust.getIkontak2());
+			p.setString(44,		cust.getInohp1());
+			p.setString(45,		cust.getInohp2());
+			p.setString(46,		cust.getIemail1());
+			p.setString(47,		cust.getIemail2());
+			
+			p.setString(48,		cust.getKalamat1());
+			p.setString(49,		cust.getKalamat2());
+			p.setString(50,			cust.getKalamat3());
+			p.setString(51,		cust.getKkota());
+			p.setString(52,			cust.getKkodepos());
+			p.setString(53,		cust.getKnotelp());
+			p.setString(54,		cust.getKnofax());
+			p.setString(55,		cust.getKemail());
+			p.setString(56,		cust.getKkontak1());
+			p.setString(57,		cust.getKkontak2());
+			p.setString(58,			cust.getKnohp1());
+			p.setString(59,		cust.getKnohp2());
+			p.setString(60,		cust.getKemail1());
+			p.setString(61,		cust.getKemail2());
+			
+			p.setString(62,		cust.getPalamat1());
+			p.setString(63,			cust.getPalamat2());
+			p.setString(64,		cust.getPalamat3());
+			p.setString(65,		cust.getPkota());
+			p.setString(66,			cust.getPkodepos());
+			p.setString(67,	cust.getPnotelp());
+			p.setString(68,cust.getPnofax());
+			p.setString(69,	cust.getPemail());
+			p.setString(70,	cust.getPkontak1());
+			p.setString(71,	cust.getPkontak2());
+			p.setString(72,	cust.getPnohp1());
+			p.setString(73,	cust.getPnohp2());
+			p.setString(74,	cust.getPemail1());
+			p.setString(75,	cust.getPemail2());
+			
+			
+			p.setString(76,	cust.getRecstatus());
+			p.setLong(77,	cust.getTglupdate());
+			p.setString(78,	cust.getUserupdate());
+			p.setString(79,cust.getKclient());
+			
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+	
+	public boolean deleteCustomer(String kclient,String cmpType) throws DAException
+	{
+		String strSQL="DELETE FROM " + (cmpType.equals("EPP")? "mcustomer" : "wcustomer") + " where kclient=?";
+		try {
+			PreparedStatement p=db.getStatement(strSQL);
+			p.setString(1, kclient);
+			return db.execute(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DAException(e.getMessage());
+		}
+	}
+}

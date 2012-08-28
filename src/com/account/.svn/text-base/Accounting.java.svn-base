@@ -1,0 +1,365 @@
+package com.account;
+
+import com.mysql.jdbc.Connection;
+
+import sf.accounting.Account;
+import sf.accounting.Expedisi;
+import sf.accounting.Kurs;
+import sf.accounting.KursPajak;
+import sf.accounting.Valuta;
+import da.error.DAException;
+
+/**
+ * @author Agus Afiantara
+ *
+ * The Accounting class contains the accounting module of ERP System. 
+ * */
+public class Accounting {
+	
+	private bo.accounting.User boUser;
+	private bo.accounting.Branch boBranch;
+	private bo.accounting.COA boCOA;
+	private bo.accounting.Invoice boInv;
+	private bo.accounting.Valuta boValuta;
+	private bo.accounting.Kurs boKurs;
+	private bo.accounting.KursPajak boKursPajak;
+	private bo.accounting.Ekspedisi boEks;
+	private bo.accounting.Pajak boPajak;
+	private bo.accounting.Report boReport;
+	public Accounting() throws DAException
+	{
+		boUser=new bo.accounting.User();
+		boBranch=new bo.accounting.Branch();
+		boCOA=new bo.accounting.COA();
+		boInv=new bo.accounting.Invoice();
+		boValuta=new bo.accounting.Valuta();
+		boKurs=new bo.accounting.Kurs();
+		boKursPajak = new bo.accounting.KursPajak();
+		boEks=new bo.accounting.Ekspedisi();
+		boPajak=new bo.accounting.Pajak();
+		boReport=new bo.accounting.Report();
+	}
+	
+	/**
+	 * insertUser is method which used in order to input new user into ERP System
+	 *  Sets new user into ERP System
+	 *  @param  user is new of user
+	 *  Returns state of insert action
+	 *  @return boolean
+	 * */
+	
+	public boolean insertUser(sf.accounting.User user) throws DAException
+	{
+		return boUser.insertUser(user);
+	}
+	
+	/**
+	 * @param userOld, the current user when application is used. 
+	 * @param newPassword, new password when change the password 
+	 *
+	 * insertUser is method which used in order to input new user into ERP System 
+	 * */
+	public boolean changePassword(sf.accounting.User userOld,String newPassword) throws DAException
+	{
+		return boUser.changePassword(userOld, newPassword);
+	}
+	
+	public boolean login(sf.accounting.User user) throws DAException
+	{
+		if(!boUser.login(user))
+				throw new DAException("Invalid User ID or Password. Please try again");
+		else
+			return true;
+	}
+	public sf.accounting.User getUsers() throws DAException
+	{
+		sf.accounting.User user=new sf.accounting.User();
+		user.setUsers(boUser.getUsers());
+		return user;
+	}
+	
+	public boolean aliasIsExist(String kstaff,long alias) throws DAException
+	{
+		return boUser.aliasIsExist(kstaff,alias);
+	}
+	public boolean deleteUser(sf.accounting.User user) throws DAException
+	{
+		user.setRecstatus("D");
+		return boUser.updateUser(user);
+		//return boUser.deleteUser(user);
+	}
+	
+	public boolean insertBranch(sf.accounting.Branch branch) throws DAException
+	{
+		return boBranch.insertBranch(branch);
+	}
+	
+	public boolean updateBranch(sf.accounting.Branch branch) throws DAException
+	{
+		branch.setRecstatus("U");
+		return boBranch.updateBranch(branch);
+	}
+	
+	public boolean deleteBranch(sf.accounting.Branch branch) throws DAException
+	{
+		branch.setRecstatus("D");
+		return boBranch.updateBranch(branch);
+		//return boBranch.deleteBranch(branch);
+	}
+	
+	public boolean updateUser(sf.accounting.User user) throws DAException
+	{
+		user.setRecstatus("U");
+		return boUser.updateUser(user);
+	}
+	
+	public sf.accounting.Branch getBranch() throws DAException
+	{
+		sf.accounting.Branch _branch = new sf.accounting.Branch();
+		_branch.setBranches(boBranch.getBranch());
+		return _branch;
+	}
+	
+	public sf.accounting.Branch getBranchByCode(String kodeCabang) throws DAException
+	{
+		sf.accounting.Branch _branch = new sf.accounting.Branch();
+		_branch.setBranches(boBranch.getBranch(kodeCabang));
+		return _branch;
+	}
+	
+	public sf.accounting.User getUser(String userID) throws DAException
+	{
+		sf.accounting.User user = boUser.getUser(userID);
+		sf.accounting.User users[]=new sf.accounting.User[1];
+		users[0]=new sf.accounting.User();
+		users[0]= boUser.getUser(userID);
+		user.setUsers(users);
+		return user;
+	}
+	public String sayHello()
+	{
+		return "Hi,Accounting service is available.";
+	}
+	
+	public Account getAccounts() throws DAException
+	{
+		Account acct =new Account();
+		acct.setAccounts(boCOA.getAccounts());
+		return acct;
+	}
+	public Account getAccountByGroup(String group) throws DAException
+	{
+		Account acct=new Account();
+		acct.setAccounts(boCOA.getAccountByGroup(group));
+		return acct;
+	}
+	
+	public Account getAccountByLevel(String level) throws DAException
+	{
+		Account acct=new Account();
+		acct.setAccounts(boCOA.getAccountByLevel(level));
+		return acct;
+	}
+	
+	public Account getAccountByNo(String accountNo) throws DAException
+	{
+		return boCOA.getAccountByNo(accountNo);
+	}
+	
+	public Account getAccountBiaya(String accountNo,String desc) throws DAException
+	{
+		return boCOA.getAccountBiaya(accountNo, desc);
+	}
+	
+	public boolean insertCOA(Account acct) throws DAException 
+	{
+		return boCOA.insertCOA(acct);
+	}
+	public boolean updateCOA(Account acct) throws DAException
+	{
+		acct.setRecstatus("U");
+		return boCOA.updateCOA(acct);
+	}
+	
+	public boolean deleteCOA(Account acct) throws DAException
+	{
+		acct.setRecstatus("D");
+		return boCOA.updateCOA(acct);	
+		//return boCOA.deleteCOA(accno);
+	}
+	
+	public sf.accounting.Invoice getInvoices() throws DAException
+	{
+		sf.accounting.Invoice inv=new sf.accounting.Invoice();
+		inv.setInvoices(boInv.getInvoices());
+		return inv;
+	}
+	
+	public boolean insertInvoice(sf.accounting.Invoice inv) throws DAException
+	{
+		return boInv.insertInvoice(inv);
+	}
+	
+	public boolean updateInvoice(sf.accounting.Invoice inv) throws DAException
+	{
+		inv.setRecstatus("U");
+		return boInv.updateInvoice(inv);
+	}
+	
+	public boolean deleteInvoice(sf.accounting.Invoice inv) throws DAException
+	{
+		inv.setRecstatus("D");
+		return boInv.updateInvoice(inv);
+		//return boInv.deleteInvoice(kinvoice);
+	}
+	
+	public Valuta getValutas() throws DAException
+	{
+		Valuta valuta =new Valuta();
+		valuta.setValutas(boValuta.getValutas());
+		return valuta;
+	}
+	
+	public Valuta getValuta(String kValuta) throws DAException
+	{
+		return boValuta.getValuta(kValuta);
+	}
+	
+	public boolean insertValuta(Valuta valuta) throws DAException
+	{
+		return boValuta.insertValuta(valuta);
+	}
+	
+	public boolean updateValuta(Valuta valuta) throws DAException
+	{
+		valuta.setRecstatus("U");
+		return boValuta.updateValuta(valuta);
+	}
+	
+	public boolean deleteValuta(Valuta valuta) throws DAException
+	{
+		valuta.setRecstatus("D");
+		return boValuta.updateValuta(valuta);
+		//return boValuta.deleteValuta(kvaluta);
+	}
+	
+	public Kurs getKurs() throws DAException
+	{
+		Kurs kurs=new Kurs();
+		kurs.setKurs(boKurs.getKurs());
+		return kurs;
+	}
+	
+	public Kurs getKursByCode(String kValuta) throws DAException
+	{
+		Kurs kurs=new Kurs();
+		kurs.setKurs(boKurs.getKurs(kValuta));
+		return kurs;
+	}
+	
+	public Kurs getLatestKurs(String kValuta,String tglValuta) throws DAException
+	{
+		Kurs kurs=new Kurs();
+		kurs.setKurs(boKurs.getLatestKurs(kValuta, tglValuta));
+		return kurs;
+	}
+	
+	public boolean insertKurs(Kurs kurs) throws DAException
+	{
+		return boKurs.insertKurs(kurs);
+	}
+	
+	public boolean updateKurs(Kurs kurs) throws DAException
+	{
+		kurs.setRecstatus("U");
+		return boKurs.updateKurs(kurs);
+	}
+	
+	public boolean deleteKurs(Kurs kurs) throws DAException
+	{
+		kurs.setRecstatus("D");
+		return boKurs.updateKurs(kurs);
+		//return boKurs.deleteKurs(kvaluta);
+	}
+	
+	public KursPajak getKursPajak() throws DAException
+	{
+		KursPajak kurs=new KursPajak();
+		kurs.setKursPajaks(boKursPajak.getKursPajak());
+		return kurs;
+	}
+	
+	public KursPajak getKursPajakByCode(String kValuta) throws DAException
+	{
+		KursPajak kurs=new KursPajak();
+		kurs.setKursPajaks(boKursPajak.getKursPajak(kValuta));
+		return kurs;
+	}
+	
+	public boolean insertKursPajak(KursPajak kurs) throws DAException
+	{
+		return boKursPajak.insertKursPajak(kurs);
+	}
+	
+	public sf.accounting.User getUserByJabatan(String kode) throws DAException
+	{
+		sf.accounting.User user = new sf.accounting.User();
+		user.setUsers(boUser.getUserByJabatan(kode));
+		return user;
+	}
+	
+	public boolean updateKursPajak(KursPajak kurs) throws DAException
+	{
+		kurs.setRecstatus("U");
+		return boKursPajak.updateKursPajak(kurs);
+	}
+	
+	public boolean deleteKursPajak(KursPajak kurs) throws DAException
+	{
+		kurs.setRecstatus("D");
+		return boKursPajak.updateKursPajak(kurs);
+		//return boKursPajak.deleteKursPajak(kvaluta);
+	}
+	
+	public Expedisi getEkspedisi() throws DAException
+	{
+		Expedisi eks = new Expedisi();
+		eks.setExpedisies(boEks.getEkspedisi());
+		return eks;
+	}
+	
+	public Expedisi getEkspedisiByCode(String kexpedisi) throws DAException
+	{
+		return boEks.getEkspedisi(kexpedisi);
+	}
+	
+	public boolean insertEkspedisi(Expedisi eks) throws DAException
+	{
+		return boEks.insertEkspedisi(eks);
+	}
+	
+	public boolean updateEkspedisi(Expedisi eks) throws DAException
+	{
+		eks.setRecstatus("U");
+		return boEks.updateEkspedisi(eks);
+	}
+	
+	public boolean deleteEkspedisi(Expedisi eks) throws DAException
+	{
+		eks.setRecstatus("D");
+		return boEks.updateEkspedisi(eks);
+		//return boEks.deleteEkspedisi(kexpedisi);
+	}
+	
+	public sf.accounting.Pajak getPajak() throws DAException
+	{
+		sf.accounting.Pajak pajak =new sf.accounting.Pajak();
+		pajak.setPajaks(boPajak.getPajak());
+		return pajak;
+	}
+	
+	public Connection getConnection()
+	{
+		return boReport.getConnection();
+	}
+}

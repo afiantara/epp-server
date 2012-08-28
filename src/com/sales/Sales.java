@@ -1,0 +1,383 @@
+package com.sales;
+
+import org.apache.log4j.Category;
+
+import sf.cetak.Cetak;
+import sf.sales.InvoiceGroup;
+import sf.sales.QuotationGroup;
+import sf.sales.SalesOrderGroup;
+import sf.sales.SuratJalanGroup;
+import da.error.DAException;
+
+public class Sales {
+	private bo.sales.Sales boSales;
+	private Cetak cetakObj;
+	static final Category log = Category.getInstance(Sales.class);
+	public Sales() throws DAException
+	{
+		boSales =new bo.sales.Sales();
+		cetakObj=new Cetak();
+	}
+	public int getNoBukti() throws DAException
+	{
+		return boSales.getNoBukti();
+	}
+	
+	public int getNoBuktiRetur() throws DAException
+	{
+		return boSales.getNoBuktiRetur();
+	}
+	public int getNoBuktiSO() throws DAException
+	{
+		return boSales.getNoBuktiSO();
+	}
+	public sf.sales.SCardHeader getKartuService() throws DAException
+	{
+		sf.sales.SCardHeader card=new sf.sales.SCardHeader();
+		card.setCards(boSales.getKartuService());
+		return card;
+	}
+	
+	public boolean insertGrouping(sf.sales.QuotationGroup group) throws DAException
+	{
+		return boSales.insertGrouping(group);
+	}
+	public boolean insertQuotation(sf.sales.QuotationHeader header,sf.sales.QuotationDetail[] details) throws DAException
+	{
+		return boSales.insertQuotation(header, details);
+	}
+	public boolean updateQuotation(sf.sales.QuotationHeader header,sf.sales.QuotationDetail[] details) throws DAException
+	{
+		return boSales.updateQuotation(header, details);
+	}
+	
+	public boolean updateSalesOrder(sf.sales.SalesOrderHeader header,sf.sales.SalesOrderDetail[] details,sf.sales.SOrderBiaya[] biayas) throws DAException
+	{
+		return boSales.updateSalesOrder(header, details,biayas);
+	}
+	
+	public boolean updateSuratJalan(sf.sales.SuratJalanHeader header,sf.sales.SuratJalanDetail[] details) throws DAException
+	{
+		return boSales.updateSuratJalan(header, details);
+	}
+	public boolean updateInvoice(sf.sales.InvoiceHeader header,sf.sales.InvoiceDetail[] details) throws DAException
+	{
+		return boSales.updateInvoice(header, details);
+	}
+	public boolean deleteQuotation(sf.sales.QuotationHeader header) throws DAException
+	{
+		return boSales.deleteQuotation(header);
+	}
+	
+	public SalesOrderGroup getSalesGrouping(String kcabang,String nobukti)throws DAException
+	{
+		SalesOrderGroup group=new SalesOrderGroup();
+		group.setGroups(boSales.getSalesGrouping(kcabang, nobukti));
+		return group;
+	}
+	
+	public InvoiceGroup getInvoiceGrouping(String kcabang,String nobukti)throws DAException
+	{
+		return boSales.getInvoiceGrouping(kcabang, nobukti);
+	}
+	public QuotationGroup getGrouping(String kcabang,String nobukti)throws DAException
+	{
+		QuotationGroup group=new QuotationGroup();
+		group.setGroups(boSales.getGrouping(kcabang, nobukti));
+		return group;
+	}
+	
+	public sf.sales.QuotationDetail getQuotationDetail(String kcabang,String noBukti) throws DAException
+	{
+		sf.sales.QuotationDetail detail=new sf.sales.QuotationDetail();
+		detail.setQuotationDetails(boSales.getQuotationDetail(kcabang, noBukti));
+		return detail;	
+	}
+	
+	public sf.sales.SalesOrderHeader getSalesOrder(String kcabang,String fromDate,String toDate,int type) throws DAException
+	{
+		sf.sales.SalesOrderHeader header=new sf.sales.SalesOrderHeader();
+		header.setSalesOrderHeaders(boSales.getSalesOrder(kcabang, fromDate, toDate,type));
+		return header;	
+	}
+	public sf.sales.SuratJalanHeader getSuratJalan(String kcabang,String fromDate,String toDate,int type) throws DAException
+	{
+		sf.sales.SuratJalanHeader header=new sf.sales.SuratJalanHeader();
+		header.setSjHeaders(boSales.getSuratJalan(kcabang, fromDate, toDate,type));
+		return header;	
+	}
+	public sf.sales.InvoiceHeader getInvoiceByClient(String kclient) throws DAException
+	{
+		return boSales.getInvoiceByClient(kclient);
+	}
+	public sf.sales.InvoiceHeader getInvoice(String kcabang,String fromDate,String toDate,int type) throws DAException
+	{
+		sf.sales.InvoiceHeader header=new sf.sales.InvoiceHeader();
+		header.setInvoiceHeaders(boSales.getInvoice(kcabang, fromDate, toDate,type));
+		return header;	
+	}
+	
+	public sf.sales.ReturHeader getRetur(String kcabang,String fromDate,String toDate) throws DAException
+	{
+		sf.sales.ReturHeader header=new sf.sales.ReturHeader();
+		header.setReturHeaders(boSales.getRetur(kcabang, fromDate, toDate));
+		return header;	
+	}
+	
+	public sf.sales.ReturDetail getReturDetail(String kcabang,String nobukti) throws DAException
+	{
+		return boSales.getReturDetail(kcabang, nobukti);
+	}
+	public sf.sales.QuotationDetail getQuotationDetailSOOut(String kcabang,String noBukti) throws DAException
+	{
+		sf.sales.QuotationDetail detail=new sf.sales.QuotationDetail();
+		detail.setQuotationDetails(boSales.getQuotationDetailSOOut(kcabang, noBukti));
+		return detail;	
+	}
+	
+	public sf.sales.QuotationDetail getQuotationDetailNotApproved(String kcabang,String noBukti) throws DAException
+	{
+		sf.sales.QuotationDetail detail=new sf.sales.QuotationDetail();
+		detail.setQuotationDetails(boSales.getQuotationDetailNotApproved(kcabang, noBukti));
+		return detail;	
+	}
+	
+	public boolean approved(int nourut,String kbarang,String kcabang,String nobukti,String approvedby,String approvedTgl) throws DAException
+	{
+		return boSales.approved(nourut,kbarang,kcabang, nobukti, approvedby, approvedTgl);
+	}
+	
+	public sf.sales.QuotationHeader getQuotationHeader(String kcabang,String fromDate,String toDate,int type) throws DAException
+	{
+		sf.sales.QuotationHeader header=new sf.sales.QuotationHeader();
+		header.setQuotationHeaders(boSales.getQuotationHeader(kcabang, fromDate, toDate,type));
+		return header;
+	}
+	
+	public boolean updateQuotationDetail(sf.sales.QuotationDetail detail) throws DAException
+	{
+		return boSales.updateQuotationDetail(detail);
+	}
+	
+	public boolean updateQuotationHeader(sf.sales.QuotationHeader header) throws DAException
+	{
+		return boSales.updateQuotationHeader(header);
+	}
+	
+	public boolean updateQuotationGroup(sf.sales.QuotationGroup group) throws DAException
+	{
+		return boSales.updateQuotationGroup(group);
+	}
+	
+	public boolean deleteQuotationGroup(sf.sales.QuotationGroup group) throws DAException
+	{
+		return boSales.deleteQuotationGroup(group);
+	}
+	
+	public double getStockBalance(String kbarang,String kgudang) throws DAException
+	{
+		return boSales.getStockBalance(kbarang, kgudang);
+	}
+	
+	public boolean insertSalesOrder(sf.sales.SalesOrderHeader header,sf.sales.SalesOrderDetail[] details) throws DAException
+	{
+		return boSales.insertSalesOrder(header, details);
+	}
+	
+	public boolean insertSuratJalan(sf.sales.SuratJalanHeader header,sf.sales.SuratJalanDetail[] details,sf.sales.SOrderBiaya[] biayas) throws DAException
+	{
+		return boSales.insertSuratJalan(header, details,biayas);
+	}
+	public boolean insertInvoice(sf.sales.InvoiceHeader header,sf.sales.InvoiceDetail[] details) throws DAException
+	{
+		return boSales.insertInvoice(header, details);
+	}
+	public int getNoSO() throws DAException
+	{
+		return boSales.getNoSO();
+	}
+	
+	public int getNoSJ() throws DAException
+	{
+		return boSales.getNoSJ();
+	}
+	public int getNoSI() throws DAException
+	{
+		return boSales.getNoSI();
+	}
+	
+	public int getNoBuktiSDPayment() throws DAException
+	{
+		return boSales.getNoBuktiSDPayment();
+	}
+	
+	public String checkSOExist(String noPO) throws DAException
+	{
+		return boSales.checkSOExist(noPO);
+	}
+	
+	
+	public sf.sales.SalesOrderDetail getSalesOrderDetail(String kcabang,String noBukti) throws DAException
+	{
+		sf.sales.SalesOrderDetail detail=new sf.sales.SalesOrderDetail();
+		detail.setSalesOrderDetails(boSales.getSalesOrderDetail(kcabang, noBukti));
+		return detail;
+	}
+	
+	public sf.sales.SuratJalanDetail getSuratJalanDetail(String kcabang,String noBukti) throws DAException
+	{
+		sf.sales.SuratJalanDetail detail=new sf.sales.SuratJalanDetail();
+		detail.setSjDetails(boSales.getSuratJalanDetail(kcabang, noBukti));
+		return detail;
+	}
+	
+	public sf.sales.SalesOrderHeader getSalesOrderHeader(String kcabang,String nobukti) throws DAException
+	{
+		sf.sales.SalesOrderHeader detail=new sf.sales.SalesOrderHeader();
+		detail.setSalesOrderHeaders(boSales.getSalesOrderHeader(kcabang, nobukti));
+		return detail;
+	}
+	
+	public sf.sales.SuratJalanHeader getSuratJalanHeader(String kcabang,String nobukti) throws DAException
+	{
+		sf.sales.SuratJalanHeader detail=new sf.sales.SuratJalanHeader();
+		detail.setSjHeaders(boSales.getSuratJalanHeader(kcabang, nobukti));
+		return detail;
+	}
+	
+	public boolean insertSalesOrderGroup(sf.sales.SalesOrderGroup group) throws DAException
+	{
+		return boSales.insertSalesOrderGroup(group);
+	}
+	public boolean deleteSalesOrder(sf.sales.SalesOrderHeader header,sf.sales.SalesOrderDetail[] details) throws DAException
+	{
+		return boSales.deleteSalesOrder(header,details);
+	}
+	
+	public boolean deleteSalesOrderDetail(sf.sales.SalesOrderHeader header, sf.sales.SalesOrderDetail detail) throws DAException
+	{
+		return boSales.deleteSalesOrderDetail(header,detail);
+	}
+	public sf.sales.SOrderBiaya getSalesOrderBiaya(String kcabang,String nobukti)
+	{
+		return boSales.getSalesOrderBiaya(kcabang, nobukti);
+	}
+	public boolean deleteSalesOrderGroup(sf.sales.SalesOrderGroup group) throws DAException
+	{
+		return boSales.deleteSalesOrderGroup(group);
+	}
+	public boolean updateSalesOrderDetail(sf.sales.SalesOrderDetail detail) throws DAException
+	{
+		return boSales.updateSalesOrderDetail(detail);
+	}
+	public boolean updateSuratJalanDetail(sf.sales.SuratJalanDetail detail) throws DAException
+	{
+		return boSales.updateSuratJalanDetail(detail);
+	}
+	public boolean updateSalesOrderGroup(sf.sales.SalesOrderGroup group) throws DAException
+	{
+		return boSales.updateSalesOrderGroup(group);
+	}
+	public boolean updateSuratJalanGroup(sf.sales.SuratJalanGroup group) throws DAException
+	{
+		return boSales.updateSuratJalanGroup(group);
+	}
+	public boolean updateSalesOrderHeader(sf.sales.SalesOrderHeader header) throws DAException
+	{
+		return boSales.updateSalesOrderHeader(header);
+	}
+	public boolean updateSuratJalanHeader(sf.sales.SuratJalanHeader header) throws DAException
+	{
+		return boSales.updateSuratJalanHeader(header);
+	}
+	public boolean deleteSuratJalan(sf.sales.SuratJalanHeader header,sf.sales.SuratJalanDetail[] details) throws DAException
+	{
+		return boSales.deleteSuratJalan(header,details);
+	}
+	public boolean deleteInvoice(sf.sales.InvoiceHeader header,sf.sales.InvoiceDetail[] details) throws DAException
+	{
+		return boSales.deleteInvoice(header,details);
+	}
+	public SuratJalanGroup getSuratJalanGrouping(String kcabang,String nobukti)throws DAException
+	{
+		sf.sales.SuratJalanGroup detail=new sf.sales.SuratJalanGroup();
+		detail.setGroups(boSales.getSuratJalanGrouping(kcabang, nobukti));
+		return detail;
+	}
+	
+	public Cetak cetakQuotation() throws DAException
+	{
+		cetakObj = boSales.cetakQuotation();
+		log.info("test-");
+		if(cetakObj!=null)
+		{
+			int rowCount = cetakObj.getRowCount();
+			for(int i=0; i < rowCount;i++)
+			{
+				String val = cetakObj.getValues()[i];
+				log.info("com->sales->Sales->row:" + val);
+			}
+		}
+		log.info("end test-");
+		return cetakObj;
+	}
+	
+	public boolean updateSorderBiaya(sf.sales.SOrderBiaya sOrderBiaya) throws DAException
+	{
+		return boSales.updateSorderBiaya(sOrderBiaya);
+	}
+	
+	public boolean deleteSorderBiaya(sf.sales.SOrderBiaya sOrderBiaya) throws DAException
+	{
+		return boSales.deleteSorderBiaya(sOrderBiaya);
+	}
+	
+	public sf.sales.SDPayment getSDPayment(String kcabang,String fromDate,String toDate) throws DAException
+	{
+		return boSales.getSDPayment(kcabang, fromDate, toDate);
+	}
+	
+	public boolean insertSDPayment(sf.sales.SDPayment detail) throws DAException
+	{
+		return boSales.insertSDPayment(detail);
+	}
+	
+	public boolean updateSDPayment(sf.sales.SDPayment detail) throws DAException
+	{
+		return boSales.updateSDPayment(detail);
+	}
+	
+	public boolean deleteSDPayment(sf.sales.SDPayment header) throws DAException
+	{
+		return boSales.deleteSDPayment(header);
+	}
+	
+	public sf.sales.SDPayment getNoDP(String kclient,String kvaluta) throws DAException
+	{
+		return boSales.getNoDP(kclient, kvaluta);
+	}
+	
+	public sf.sales.SDPayment getNoDPByNoBukti(String nobukti) throws DAException
+	{
+		return boSales.getNoDPByNoBukti(nobukti);
+	}
+	public sf.sales.InvoiceDetail getInvoiceDetail(String kcabang,String noBukti) throws DAException
+	{
+		return boSales.getInvoiceDetail(kcabang, noBukti);
+	}
+	
+	public boolean deleteRetur(sf.sales.ReturHeader header,sf.sales.ReturDetail[] details) throws DAException
+	{
+		return boSales.deleteRetur(header,details);
+	}
+	
+	public boolean insertRetur(sf.sales.ReturHeader header,sf.sales.ReturDetail[] details) throws DAException
+	{
+		return boSales.insertRetur(header, details);
+	}
+	
+	public boolean updateRetur(sf.sales.ReturHeader header,sf.sales.ReturDetail[] details) throws DAException
+	{
+		return boSales.updateRetur(header, details);
+	}
+}

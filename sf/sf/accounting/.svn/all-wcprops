@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting
+END
+Jabatan.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Jabatan.java
+END
+Tools.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Tools.java
+END
+Kurs.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Kurs.java
+END
+Pajak.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Pajak.java
+END
+Expedisi.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Expedisi.java
+END
+KursPajak.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/KursPajak.java
+END
+Invoice.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Invoice.java
+END
+Valuta.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Valuta.java
+END
+Account.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Account.java
+END
+Branch.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/Branch.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/13/trunk/server/sf/sf/accounting/User.java
+END

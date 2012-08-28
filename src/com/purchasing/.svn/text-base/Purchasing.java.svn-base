@@ -1,0 +1,41 @@
+package com.purchasing;
+
+import da.error.DAException;
+
+public class Purchasing {
+	private bo.purchasing.Supplier boSupplier;
+	public Purchasing() throws DAException
+	{
+		boSupplier=new bo.purchasing.Supplier();
+	}
+	
+	public sf.purchasing.Supplier getSupplier() throws DAException
+	{
+		sf.purchasing.Supplier supplier=new sf.purchasing.Supplier();
+		supplier.setSuppliers(boSupplier.getSupplier());
+		return supplier;
+	}
+
+	public sf.purchasing.Supplier getSupplierByCode(String kvendor) throws DAException
+	{
+		return boSupplier.getSupplier(kvendor);
+	}
+	
+	public boolean insertSupplier(sf.purchasing.Supplier supplier) throws DAException
+	{
+		return boSupplier.insertSupplier(supplier);
+	}
+	
+	public boolean updateSupplier(sf.purchasing.Supplier supplier) throws DAException
+	{
+		supplier.setRecstatus("U");
+		return boSupplier.updateSupplier(supplier);
+	}
+	
+	public boolean deleteSupplier(sf.purchasing.Supplier supplier) throws DAException
+	{
+		supplier.setRecstatus("D");
+		return boSupplier.updateSupplier(supplier);
+		//return boSupplier.deleteSupplier(kvendor);
+	}
+}
